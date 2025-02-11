@@ -2,22 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/002_Dinner_Suggestions/index2.html</loc>
-    <lastmod>2025-02-03T20:34:26.153Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/001_Drawing_post/index1.html</loc>
-    <lastmod>2025-02-03T20:34:26.138Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/about.html</loc>
-    <lastmod>2025-02-03T20:34:26.136Z</lastmod>
+    <lastmod>2025-02-11T22:40:05.995Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/index.html</loc>
-    <lastmod>2025-02-03T20:34:26.136Z</lastmod>
+    <lastmod>2025-02-11T22:40:05.980Z</lastmod>
   </url>
   <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/000_test_post/index.html</loc>
-    <lastmod>2025-02-03T20:34:26.137Z</lastmod>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/about.html</loc>
+    <lastmod>2025-02-11T22:40:05.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/001_Drawing_post/index1.html</loc>
+    <lastmod>2025-02-11T22:40:05.980Z</lastmod>
   </url>
 </urlset>
