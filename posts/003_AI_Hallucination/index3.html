@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jenn Deng">
+<meta name="dcterms.date" content="2024-02-03">
+<meta name="description" content="An example post from a Jupyter notebook">
 
-<title>My Explorations with LLMs – Explorations with LLMs</title>
+<title>AI Hallucinations – Explorations with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4d3cdb0fd9962c8e282565198c6c59d0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4d3cdb0fd9962c8e282565198c6c59d0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +69,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Explorations with LLMs</span>
     </a>
   </div>
@@ -149,7 +92,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,158 +115,94 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">My Explorations with LLMs</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">AI Hallucinations</h1>
+                  <div>
+        <div class="description">
+          An example post from a Jupyter notebook
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">prompting</div>
+                <div class="quarto-category">logic</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jenn Deng </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 3, 2024</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TExNcw==">LLMs <span class="quarto-category-count">(3)</span></div><div class="category" data-category="bG9naWM=">logic <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHJvbXB0aW5n">prompting <span class="quarto-category-count">(3)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<ul>
+<li><p>Hallucinations in AI happens when there are incorrect or misleading results generated by AI models. This happens when an AI system makes false assumptions or uses biased data to generate information. &gt; How do hallucinations happen? &gt; * not enough training data &gt; * biased training data &gt; * wrong assumptions &gt; * processing errors</p></li>
+<li><p>Sometimes, there’s wrong code or images that pop up. It’s up to us to choose whether the information is right or wrong. Let’s look at a few examples that a few people have encountered in the past.</p></li>
+</ul>
+<section id="reddit-time" class="level4">
+<h4 class="anchored" data-anchor-id="reddit-time">Reddit time!</h4>
+<ul>
+<li>I took a quick look on Reddit to dig for some examples of ChatGPT hallucinations. I wanted to see if they still existed, since some of the posts were 1-2 years ago.</li>
+</ul>
+<blockquote class="blockquote">
+<ol type="1">
+<li><img src="SS1.png" width="100%"> Jenn’s update: Well, I think they fixed this up. <img src="SS2.png" width="100%"></li>
+</ol>
+</blockquote>
+<ul>
+<li>Ok, well… let’s check on Reddit for some more ChatGPT hallucinations</li>
+</ul>
+<blockquote class="blockquote">
+<ol start="2" type="1">
+<li><img src="SS3.png" width="100%"> Jenn’s update: It’s interesting how they try to reference the information, but still got the information wrong. <img src="SS4.png" width="100%"></li>
+</ol>
+</blockquote>
+<ul>
+<li>Ah-HAH! One down. Let’s try another one. Now, I’m not an organic chemistry person, but let’s see if this one has updated from 2 years ago.</li>
+</ul>
+<blockquote class="blockquote">
+<ol start="3" type="1">
+<li><img src="SS5.png" width="100%"> Jenn’s update: Well, darn! This is sad for any organic chemistry lovers out there. ChatGPT is really bad at organic chemistry. <img src="SS6.png" width="100%"></li>
+</ol>
+</blockquote>
+</section>
+<section id="conclusions-takeaways" class="level4">
+<h4 class="anchored" data-anchor-id="conclusions-takeaways">Conclusions &amp; Takeaways</h4>
+<section id="well-it-goes-to-show-that-chatgpt-despite-its-various-updates-still-manages-to-get-answers-wrong-and-hallucinate.-im-not-sure-if-theyre-ever-going-to-be-able-to-turn-chatgpt-into-an-organic-chemistry-genius-or-be-able-to-correctly-reference-sports-games.-however-its-interesting-to-see-how-certain-questions-enable-incorrect-results-and-how-humans-are-able-to-jump-in-and-identify-these-mistakes." class="level6">
+<h6 class="anchored" data-anchor-id="well-it-goes-to-show-that-chatgpt-despite-its-various-updates-still-manages-to-get-answers-wrong-and-hallucinate.-im-not-sure-if-theyre-ever-going-to-be-able-to-turn-chatgpt-into-an-organic-chemistry-genius-or-be-able-to-correctly-reference-sports-games.-however-its-interesting-to-see-how-certain-questions-enable-incorrect-results-and-how-humans-are-able-to-jump-in-and-identify-these-mistakes.">Well, it goes to show that ChatGPT, despite its various updates, still manages to get answers wrong and hallucinate. I’m not sure if they’re ever going to be able to turn ChatGPT into an organic chemistry genius or be able to correctly reference sports games. However, it’s interesting to see how certain questions enable incorrect results, and how humans are able to jump in and identify these mistakes.</h6>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TExNcyUyQ3Byb21wdGluZyUyQ2xvZ2lj" data-listing-date-sort="1706918400000" data-listing-file-modified-sort="1739313624749" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="683">
-<div class="thumbnail">
-<p><a href="./posts/001_Drawing_post/index1.html" class="no-external"></a></p><a href="./posts/001_Drawing_post/index1.html" class="no-external">
-<p class="card-img-top"><img src="posts/001_Drawing_post/interlaken.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/001_Drawing_post/index1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/001_Drawing_post/index1.html" class="no-external">Posting Pictures for ChatGPT</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/001_Drawing_post/index1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvbXB0aW5n'); return false;">
-prompting
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bG9naWM='); return false;">
-logic
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/001_Drawing_post/index1.html" class="no-external">Let’s see if ChatGPT can guess correctly!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/001_Drawing_post/index1.html" class="no-external">
-<div class="listing-date">
-Feb 3, 2024
-</div>
-<div class="listing-author">
-Jenn Deng
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="TExNcyUyQ3Byb21wdGluZyUyQ2xvZ2lj" data-listing-date-sort="1706918400000" data-listing-file-modified-sort="1739313624768" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="299">
-<div class="thumbnail">
-<p><a href="./posts/003_AI_Hallucination/index3.html" class="no-external"></a></p><a href="./posts/003_AI_Hallucination/index3.html" class="no-external">
-<p class="card-img-top"><img src="posts/003_AI_Hallucination/SS1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/003_AI_Hallucination/index3.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/003_AI_Hallucination/index3.html" class="no-external">AI Hallucinations</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/003_AI_Hallucination/index3.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvbXB0aW5n'); return false;">
-prompting
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bG9naWM='); return false;">
-logic
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/003_AI_Hallucination/index3.html" class="no-external">An example post from a Jupyter notebook</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/003_AI_Hallucination/index3.html" class="no-external">
-<div class="listing-date">
-Feb 3, 2024
-</div>
-<div class="listing-author">
-Jenn Deng
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="TExNcyUyQ3Byb21wdGluZw==" data-listing-date-sort="1706918400000" data-listing-file-modified-sort="1739313624764" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="476">
-<div class="thumbnail">
-<p><a href="./posts/002_Dinner_Suggestions/index2.html" class="no-external"></a></p><a href="./posts/002_Dinner_Suggestions/index2.html" class="no-external">
-<p class="card-img-top"><img src="posts/002_Dinner_Suggestions/code1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/002_Dinner_Suggestions/index2.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/002_Dinner_Suggestions/index2.html" class="no-external">Guestimation and Making Graphs in R!</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/002_Dinner_Suggestions/index2.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvbXB0aW5n'); return false;">
-prompting
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/002_Dinner_Suggestions/index2.html" class="no-external">Let’s cook.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/002_Dinner_Suggestions/index2.html" class="no-external">
-<div class="listing-date">
-Feb 3, 2024
-</div>
-<div class="listing-author">
-Jenn Deng
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
