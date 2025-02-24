@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Explorations with LLMs"
+  title: "Jenn Deng's Exploration with LLMs"
   navbar:
     right:
       - about.qmd
@@ -12,7 +12,7 @@ website:
         href: https://twitter.com
 format:
   html:
-    theme: solar
+    theme: litera
     css: styles.css
 
 execute:
