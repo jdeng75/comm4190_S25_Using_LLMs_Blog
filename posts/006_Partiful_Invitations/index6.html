@@ -42,9 +42,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-5f857bdc012121c8fd95bcd1932be5a4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -186,19 +183,19 @@ ul.task-list li input[type="checkbox"] {
 <div style="display: grid;grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));grid-gap: 1em;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="dinner1.jpeg" class="lightbox" data-gallery="my-gallery" title="A Lovely Image"><img src="dinner1.jpeg" class="img-fluid figure-img" alt="A Lovely Image"></a></p>
+<p><img src="dinner1.jpeg" class="img-fluid figure-img" data-group="my-gallery"></p>
 <figcaption>A Lovely Image</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="dinner2.jpeg" class="lightbox" data-gallery="my-gallery" title="Another Lovely Image"><img src="dinner2.jpeg" class="img-fluid figure-img" alt="Another Lovely Image"></a></p>
+<p><img src="dinner2.jpeg" class="img-fluid figure-img" data-group="my-gallery"></p>
 <figcaption>Another Lovely Image</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="dinner3.jpeg" class="lightbox" data-gallery="my-gallery" title="The Last Lovely Image"><img src="dinner3.jpeg" class="img-fluid figure-img" alt="The Last Lovely Image"></a></p>
+<p><img src="dinner3.jpeg" class="img-fluid figure-img" data-group="my-gallery"></p>
 <figcaption>The Last Lovely Image</figcaption>
 </figure>
 </div>
@@ -697,38 +694,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 
