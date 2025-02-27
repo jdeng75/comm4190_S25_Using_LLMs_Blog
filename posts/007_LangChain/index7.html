@@ -198,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="what-is-the-term-large-language-model" class="level1">
 <h1>What is the term <strong>large language model</strong></h1>
 <p><img src="1.png" width="100%"></p>
-<p><strong>Large Language Models:</strong> <br> - <em>Large</em> describes the size of these models based on the training data and parameters. - <em>Language model</em> describes the computer algorithm trained to receive written text and to create an output. - Large language models are trained on vast amounts of text and have learned from the patterns in large data sets.</p>
+<p><strong>Large Language Models:</strong> <br> - <em>Large</em> describes the size of these models based on the training data and parameters.<br> - <em>Language model</em> describes the computer algorithm trained to receive written text and to create an output.<br> - Large language models are trained on vast amounts of text and have learned from the patterns in large data sets.<br></p>
 <p><strong>Fun Fact</strong> : Most models are better at English than they are in other languages because of the prevalence of English in training models.</p>
 </section>
 <section id="how-does-langchain-come-into-play" class="level1">
@@ -208,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="getting-set-up-with-langchain" class="level1">
 <h1>Getting Set Up With LangChain</h1>
-<p>I’ll be referencing O’Reilly “Chapter 1.LLM Fundementals With LangChain” if you want to follow along! We’re going to learn how to work with LangChain’s building blocks to understand more about LLM concepts. <br> LangChain has two interfaces to interact with any LLM API provider - Chat models - LLMS</p>
+<p>I’ll be referencing O’Reilly “Chapter 1.LLM Fundementals With LangChain” if you want to follow along! We’re going to learn how to work with LangChain’s building blocks to understand more about LLM concepts. <br> LangChain has two interfaces to interact with any LLM API provider<br> - Chat models<br> - LLMS</p>
 <section id="example-1-im-at-a-capital-one.." class="level5">
 <h5 class="anchored" data-anchor-id="example-1-im-at-a-capital-one.."><strong>Example 1: I’m at a Capital One..”</strong></h5>
 <details>
@@ -331,7 +331,7 @@ Code
 template.invoke({ “context”: “““There are many different types of coffees, but I particularly love very strong coffee taste.”““,”question”: “What coffee should I try?” })
 </details>
 <p>The template can be used as a base for building multiple static, specific prompts. When you format the prompt with specific values, context and question, you get a static prompt ready to be passed into an LLM. <br> <strong>Let’s feed it into an LLM OpenAI model using LangChain</strong>:</p>
-<div id="b8de30ff-ea47-4642-9581-8782a087925a" class="cell" data-execution_count="35">
+<div id="b8de30ff-ea47-4642-9581-8782a087925a" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai.llms <span class="im">import</span> OpenAI</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.prompts <span class="im">import</span> PromptTemplate</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -355,7 +355,7 @@ template.invoke({ “context”: “““There are many different types of coff
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> template.invoke({</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"context"</span>: <span class="st">"""There are many different types of </span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="st">    coffees, but I particularly love very strong coffee taste.."""</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"question"</span>: <span class="st">"Which model providers offer LLMs?"</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"question"</span>: <span class="st">"What coffee should I try?"</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>completion <span class="op">=</span> model.invoke(prompt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
