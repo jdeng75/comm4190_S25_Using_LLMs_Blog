@@ -171,6 +171,16 @@ ul.task-list li input[type="checkbox"] {
 <h1>How Does LangChain Come Into Play</h1>
 <p><img src="2.png" width="100%"></p>
 <p>On October 22, 2022, Harrison Chase was the first the publish the first commit on GitHub for the LangChain open source library. <br> LangChain was created after discovering that LLM applications needed to use LLMs together with “other sources of computation or knowledge”. <br> It creates simple abstractions for each major prompting technique.</p>
+</section>
+<section id="getting-set-up-with-langchain" class="level1">
+<h1>Getting Set Up With LangChain</h1>
+<p>I’ll be referencing O’Reilly “Chapter 1.LLM Fundementals With LangChain” if you want to follow along! We’re going to learn how to work with LangChain’s building blocks to understand more about LLM concepts. <br> LangChain has two interfaces to interact with any LLM API provider - Chat models - LLMS</p>
+<pre class="{details}"><code>from langchain_openai.chat_models import ChatOpenAI
+
+model = ChatOpenAI(model="gpt-3.5-turbo")
+
+response = model.invoke("I'm at a capital one")
+print(response)</code></pre>
 
 
 </section>
