@@ -175,14 +175,25 @@ ul.task-list li input[type="checkbox"] {
 <section id="getting-set-up-with-langchain" class="level1">
 <h1>Getting Set Up With LangChain</h1>
 <p>I’ll be referencing O’Reilly “Chapter 1.LLM Fundementals With LangChain” if you want to follow along! We’re going to learn how to work with LangChain’s building blocks to understand more about LLM concepts. <br> LangChain has two interfaces to interact with any LLM API provider - Chat models - LLMS</p>
-<pre class="{details}"><code>from langchain_openai.chat_models import ChatOpenAI
+<section id="example-1-im-at-a-capital-one.." class="level5">
+<h5 class="anchored" data-anchor-id="example-1-im-at-a-capital-one.."><strong>Example 1: I’m at a Capital One..”</strong></h5>
+<pre class="{details}"><code>### Show the Code
+
+```{python}
+from langchain_openai.chat_models import ChatOpenAI
 
 model = ChatOpenAI(model="gpt-3.5-turbo")
 
 response = model.invoke("I'm at a capital one")
 print(response)</code></pre>
+<p>```</p>
+</section>
+<section id="response-1" class="level5">
+<h5 class="anchored" data-anchor-id="response-1">Response 1</h5>
+<p>content=‘bank branch. How can I assist you today?’ additional_kwargs={‘refusal’: None} response_metadata={‘token_usage’: {‘completion_tokens’: 11, ‘prompt_tokens’: 13, ‘total_tokens’: 24, ‘completion_tokens_details’: {‘accepted_prediction_tokens’: 0, ‘audio_tokens’: 0, ‘reasoning_tokens’: 0, ‘rejected_prediction_tokens’: 0}, ‘prompt_tokens_details’: {‘audio_tokens’: 0, ‘cached_tokens’: 0}}, ‘model_name’: ‘gpt-3.5-turbo-0125’, ‘system_fingerprint’: None, ‘finish_reason’: ‘stop’, ‘logprobs’: None} id=‘run-80a164c8-60dd-447f-a128-6e6482c0df04-0’ usage_metadata={‘input_tokens’: 13, ‘output_tokens’: 11, ‘total_tokens’: 24, ‘input_token_details’: {‘audio’: 0, ‘cache_read’: 0}, ‘output_token_details’: {‘audio’: 0, ‘reasoning’: 0}}</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
