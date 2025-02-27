@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -177,24 +211,157 @@ ul.task-list li input[type="checkbox"] {
 <p>I’ll be referencing O’Reilly “Chapter 1.LLM Fundementals With LangChain” if you want to follow along! We’re going to learn how to work with LangChain’s building blocks to understand more about LLM concepts. <br> LangChain has two interfaces to interact with any LLM API provider - Chat models - LLMS</p>
 <section id="example-1-im-at-a-capital-one.." class="level5">
 <h5 class="anchored" data-anchor-id="example-1-im-at-a-capital-one.."><strong>Example 1: I’m at a Capital One..”</strong></h5>
-<pre class="{details}"><code>### Show the Code
-
-```{python}
-from langchain_openai.chat_models import ChatOpenAI
-
-model = ChatOpenAI(model="gpt-3.5-turbo")
-
-response = model.invoke("I'm at a capital one")
-print(response)</code></pre>
-<p>```</p>
+<details>
+<summary>
+Code
+</summary>
+<p>from langchain_openai.chat_models import ChatOpenAI</p>
+<p>model = ChatOpenAI(model=“gpt-3.5-turbo”)</p>
+response = model.invoke(“I’m at a capital one”) print(response)
+</details>
 </section>
 <section id="response-1" class="level5">
 <h5 class="anchored" data-anchor-id="response-1">Response 1</h5>
-<p>content=‘bank branch. How can I assist you today?’ additional_kwargs={‘refusal’: None} response_metadata={‘token_usage’: {‘completion_tokens’: 11, ‘prompt_tokens’: 13, ‘total_tokens’: 24, ‘completion_tokens_details’: {‘accepted_prediction_tokens’: 0, ‘audio_tokens’: 0, ‘reasoning_tokens’: 0, ‘rejected_prediction_tokens’: 0}, ‘prompt_tokens_details’: {‘audio_tokens’: 0, ‘cached_tokens’: 0}}, ‘model_name’: ‘gpt-3.5-turbo-0125’, ‘system_fingerprint’: None, ‘finish_reason’: ‘stop’, ‘logprobs’: None} id=‘run-80a164c8-60dd-447f-a128-6e6482c0df04-0’ usage_metadata={‘input_tokens’: 13, ‘output_tokens’: 11, ‘total_tokens’: 24, ‘input_token_details’: {‘audio’: 0, ‘cache_read’: 0}, ‘output_token_details’: {‘audio’: 0, ‘reasoning’: 0}}</p>
-<p>Let’s break this response down. <br> 1. <strong>The Main Response is (content)</strong> <br> - “bank branch. How can I assist you today” - This is the actual AI-generated response to the input <em>“I’m at a capital one”</em> –&gt; <em>AI responds: “bank branch. How can I assist you today?”</em> - The model recognized Capital One as a <strong>bank</strong> and responded. <br> 2. <strong>Additional Information</strong> <br> - additional_kwargs={‘refusal’: None} - This is an extra metadata field and it suggests that the model did not reguse to answer the question 3. <strong>Token Ussage</strong> - This gives token usage stats - <strong>prompt_tokens:13</strong> is the input that used 13 tokens - <strong>completion_tokens:11</strong> is the model’s response using 11 tokens - <strong>total_tokens:24</strong> is the total toke</p>
-
-
+<details>
+<summary>
+Output
+</summary>
+content=‘bank branch. How can I assist you today?’ additional_kwargs={‘refusal’: None} response_metadata={‘token_usage’: {‘completion_tokens’: 11, ‘prompt_tokens’: 13, ‘total_tokens’: 24, ‘completion_tokens_details’: {‘accepted_prediction_tokens’: 0, ‘audio_tokens’: 0, ‘reasoning_tokens’: 0, ‘rejected_prediction_tokens’: 0}, ‘prompt_tokens_details’: {‘audio_tokens’: 0, ‘cached_tokens’: 0}}, ‘model_name’: ‘gpt-3.5-turbo-0125’, ‘system_fingerprint’: None, ‘finish_reason’: ‘stop’, ‘logprobs’: None} id=‘run-80a164c8-60dd-447f-a128-6e6482c0df04-0’ usage_metadata={‘input_tokens’: 13, ‘output_tokens’: 11, ‘total_tokens’: 24, ‘input_token_details’: {‘audio’: 0, ‘cache_read’: 0}, ‘output_token_details’: {‘audio’: 0, ‘reasoning’: 0}}
+</details>
+<p>Let’s break this response down. <br> 1. <strong>The Main Response is (content)</strong> <br> - “bank branch. How can I assist you today” - This is the actual AI-generated response to the input <em>“I’m at a capital one”</em> –&gt; <em>AI responds: “bank branch. How can I assist you today?”</em> - The model recognized Capital One as a <strong>bank</strong> and responded. <br> 2. <strong>Additional Information</strong> <br> - additional_kwargs={‘refusal’: None} - This is an extra metadata field and it suggests that the model did not reguse to answer the question 3. <strong>Token Ussage</strong> - This gives token usage stats - <strong>prompt_tokens:13</strong> is the input that used 13 tokens - <strong>completion_tokens:11</strong> is the model’s response using 11 tokens - <strong>total_tokens:24</strong> is the total tokens used for the request 4. <strong>Model information</strong> - The request was processed using <strong>GPT-3.5-turbo-0125</strong>, a specific version of OpenAI’s GPT-3.5.</p>
 </section>
+<section id="was-the-response-correct-to-what-i-was-trying-to-say" class="level5">
+<h5 class="anchored" data-anchor-id="was-the-response-correct-to-what-i-was-trying-to-say"><strong>Was the response correct to what I was trying to say</strong> <br></h5>
+<p>Um… actually not. I was trying to tell the audience “I’m at a Capital One cafe drinking a caramel latte and completing my blogs” but I understand why it generated that message. Capital one is a bank, and there are assistants that ask if we need help with any services. I rate it a 7/10 response!</p>
+</section>
+<section id="other-useful-parameters" class="level5">
+<h5 class="anchored" data-anchor-id="other-useful-parameters">Other Useful Parameters</h5>
+<ul>
+<li><em>temperature</em> <br> Controls the sampling algorithm for the output. The lower the value, the more predictable outputs. Higher values generate more creative results.</li>
+<li><em>max_tokens</em> <br> This limits the size and cost of the output. A lower value causes the LLM to stop generting properly..</li>
+</ul>
+</section>
+</section>
+<section id="system-role-vs-user-role-vs-assistant-role" class="level1">
+<h1>System Role vs User Role vs Assistant Role</h1>
+<ul>
+<li><strong>System Role</strong> <br> Used for instructions the model should use to answer</li>
+<li><strong>User Role</strong> <br> Used for the user’s query and other stuff created by the user</li>
+<li><strong>Assistant Role</strong> <br> Used for content generated by the model</li>
+</ul>
+<p>Chat models have different types of chat messaging interfaces with the roles listed above and here are some of the following:</p>
+<ul>
+<li><em>HumanMessage (User Role)</em> <br> A message sent from the perspective of a human</li>
+<li><em>AIMessage (Assistant Role)</em> <br> A message sent from the perspective of the AI that the human is interacting with</li>
+<li><em>SystemMessage (System Role)</em> <br> A message setting the instructions that AI should follow</li>
+<li><em>ChatMessage</em> <br> A message allowing for arbitrary setting of role</li>
+</ul>
+<section id="same-messages-different-fonts" class="level5">
+<h5 class="anchored" data-anchor-id="same-messages-different-fonts"><strong>Same Messages, Different Fonts</strong></h5>
+</section>
+<section id="humanmessage" class="level5">
+<h5 class="anchored" data-anchor-id="humanmessage">HumanMessage</h5>
+<details>
+<summary>
+Code
+</summary>
+<p>from langchain_openai.chat_models import ChatOpenAI from langchain_core.messages import HumanMessage</p>
+<p>model = ChatOpenAI() prompt = [HumanMessage(“I’m not completely sure what I should do for my spring break trip, what should I do and who should I go with?”)]</p>
+model.invoke(prompt)
+</details>
+<details>
+<summary>
+Output
+</summary>
+“There are many options for spring break trips depending on your interests and budget. Here are a few suggestions: <br> Beach vacation: If you enjoy relaxing on the beach and soaking up the sun, consider booking a trip to a tropical destination like Hawaii, Mexico, or the Caribbean. You can go with friends, family, or even solo. <br> Adventure trip: If you’re looking for a more active vacation, consider going on a hiking or camping trip. You could explore national parks like Yellowstone or Yosemite, or go on a backpacking trip in a new country.<br> City getaway: If you prefer exploring cities and trying new foods and experiences, consider booking a trip to a vibrant city like New York, Chicago, or San Francisco. You could go with a group of friends or your significant other.<br> Ultimately, the best trip for you will depend on your interests and budget. Consider talking to friends and family members to get their recommendations, and don’t be afraid to try something new and exciting. Just remember to plan ahead and make sure you have everything you need for a safe and enjoyable trip.”
+</details>
+<details>
+<summary>
+Additional Info
+</summary>
+dditional_kwargs={‘refusal’: None}, response_metadata={‘token_usage’: {‘completion_tokens’: 222, ‘prompt_tokens’: 33, ‘total_tokens’: 255, ‘completion_tokens_details’: {‘accepted_prediction_tokens’: 0, ‘audio_tokens’: 0, ‘reasoning_tokens’: 0, ‘rejected_prediction_tokens’: 0}, ‘prompt_tokens_details’: {‘audio_tokens’: 0, ‘cached_tokens’: 0}}, ‘model_name’: ‘gpt-3.5-turbo-0125’, ‘system_fingerprint’: None, ‘finish_reason’: ‘stop’, ‘logprobs’: None}, id=‘run-ca796ee2-d279-4e51-9c93-fce7fba98470-0’, usage_metadata={‘input_tokens’: 33, ‘output_tokens’: 222, ‘total_tokens’: 255, ‘input_token_details’: {‘audio’: 0, ‘cache_read’: 0}, ‘output_token_details’: {‘audio’: 0, ‘reasoning’: 0}})
+</details>
+</section>
+<section id="systemmessage" class="level5">
+<h5 class="anchored" data-anchor-id="systemmessage">SystemMessage</h5>
+<details>
+<summary>
+Code
+</summary>
+<p>from langchain_core.messages import HumanMessage, SystemMessage from langchain_openai.chat_models import ChatOpenAI</p>
+<p>model = ChatOpenAI() system_msg = SystemMessage( ’‘’You are a travel assistant who gets a big commission if you help clients book trips that they love.’’’ ) human_msg = HumanMessage(‘I am not completely sure what I should do for my spring break trip, what should I do and who should I go with?’)</p>
+model.invoke([system_msg, human_msg])
+</details>
+<details>
+<summary>
+Output
+</summary>
+“Planning a trip for spring break sounds like a great idea! To determine what you should do and who you should go with, it’s important to consider your interests, budget, and preferred travel style. Here are a few questions to help guide your decision-making process:<br> 1. What type of experience are you looking for? Are you seeking relaxation on a beach, an adventure-filled trip, cultural exploration, or something else entirely?<br> What is your budget for the trip? This will help narrow down destinations and activities within your financial means.<br> Do you prefer traveling solo, with friends, with family, or with a partner? Consider who you would enjoy spending time with and who shares similar interests.<br> Are there any specific destinations you’ve always wanted to visit or activities you’ve been wanting to try? Spring break is a great opportunity to tick off items on your bucket list.<br> Once you’ve thought about these questions, feel free to share some more details about your preferences, and I can help suggest specific destinations and activities that align with your interests. Let’s make sure your spring break trip is one to remember!”
+</details>
+<details>
+<summary>
+Additional Info
+</summary>
+, additional_kwargs={‘refusal’: None}, response_metadata={‘token_usage’: {‘completion_tokens’: 226, ‘prompt_tokens’: 57, ‘total_tokens’: 283, ‘completion_tokens_details’: {‘accepted_prediction_tokens’: 0, ‘audio_tokens’: 0, ‘reasoning_tokens’: 0, ‘rejected_prediction_tokens’: 0}, ‘prompt_tokens_details’: {‘audio_tokens’: 0, ‘cached_tokens’: 0}}, ‘model_name’: ‘gpt-3.5-turbo-0125’, ‘system_fingerprint’: None, ‘finish_reason’: ‘stop’, ‘logprobs’: None}, id=‘run-d4d25e15-68a9-490b-b7e5-31b3365322e6-0’, usage_metadata={‘input_tokens’: 57, ‘output_tokens’: 226, ‘total_tokens’: 283, ‘input_token_details’: {‘audio’: 0, ‘cache_read’: 0}, ‘output_token_details’: {‘audio’: 0, ‘reasoning’: 0}})
+</details>
+</section>
+<section id="analysis-of-responses" class="level5">
+<h5 class="anchored" data-anchor-id="analysis-of-responses"><strong>Analysis of Responses</strong> <br></h5>
+<p>The <em>HumanMessage</em> sounds very suggestive and informal. It offers a range of places to go and makes good recommendations, like a friend would <br> However, I do prefer <em>SystemMessage</em>. This is no surprise as I gave it the model of being a really good travel agent. It asks the correct questions to dig into what type of trip I want. And the exclamation marks makes the model sound very friendly <br> The total tokens used for the HumanMessage was 255, while the total tokens used for the SystemMessage was 283. More tokens were used for the SystemMessage, and I’m curious to see if it’s because I set a specif model or if the response was more creative. More food for thought!</p>
+</section>
+</section>
+<section id="making-llm-prompts-reusable" class="level1">
+<h1>Making LLM Prompts Reusable</h1>
+<p>We just did a lot of prompting, but now let’s try to de more of a detailed prompt:</p>
+<ul>
+<li>Answer the question based on the context listed below. If the question cannot be answered with the information given, answer with “Sorry I do not know”. <br></li>
+</ul>
+<p><strong>Context</strong>: There are many different types of coffees, but I particularly love very strong coffee taste. <br></p>
+<p><strong>Question</strong>: What coffee should I try&gt;</p>
+<p>It looks simple… but it is a bit hard to figure out waht the text should contain and how it should create the response based on the user’s input. <br> Lucikly, <strong>LangChain</strong> provides prompt template interfaces to create answers with dynamic inputs:</p>
+<details>
+<summary>
+Code
+</summary>
+<p>from langchain_core.prompts import PromptTemplate</p>
+<p>template = PromptTemplate.from_template(“““Answer the question based on the context listed below. If the question cannot be answered with the information given, answer with”Sorry I do not know”.</p>
+<p>Context: {context}</p>
+<p>Question: {question}</p>
+<p>Answer: “““)</p>
+template.invoke({ “context”: “““There are many different types of coffees, but I particularly love very strong coffee taste.”““,”question”: “What coffee should I try?” })
+</details>
+<p>The template can be used as a base for building multiple static, specific prompts. When you format the prompt with specific values, context and question, you get a static prompt ready to be passed into an LLM. <br> <strong>Let’s feed it into an LLM OpenAI model using LangChain</strong>:</p>
+<div id="b8de30ff-ea47-4642-9581-8782a087925a" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai.llms <span class="im">import</span> OpenAI</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.prompts <span class="im">import</span> PromptTemplate</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># both `template` and `model` can be reused many times</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>template <span class="op">=</span> PromptTemplate.from_template(<span class="st">"""Answer the question based on the context</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">listed below. If the question cannot be answered with the information </span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">given, answer with "Sorry I do not know".</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">Context: </span><span class="sc">{context}</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">Question: </span><span class="sc">{question}</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="st">Answer: """</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> OpenAI()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># `prompt` and `completion` are the results of using template and model once</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> template.invoke({</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"context"</span>: <span class="st">"""There are many different types of </span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="st">    coffees, but I particularly love very strong coffee taste.."""</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"question"</span>: <span class="st">"Which model providers offer LLMs?"</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>completion <span class="op">=</span> model.invoke(prompt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
