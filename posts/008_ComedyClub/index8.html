@@ -251,7 +251,7 @@ A humanoid android with a neon mohawk, full of sarcasm and attitude.
 <div id="76c5ef1f-dd4c-4967-a3c7-2d48bd968854" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">### **Round 1**: Tell me a dad joke.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="19f6eea2-0dd2-4344-aecf-2fb435642785" class="cell" data-execution_count="17">
+<div id="19f6eea2-0dd2-4344-aecf-2fb435642785" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> openai <span class="im">import</span> OpenAI</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -297,14 +297,14 @@ A humanoid android with a neon mohawk, full of sarcasm and attitude.
 <span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Byte the Jester: Why did the scarecrow win an award? Because he was outstanding in his field!
-GiggleBot 3000: Why don't scientists trust atoms? Because they make up everything!
-SassyCircuit: Sure thing! Why don't skeletons fight each other? They don't have the guts!</code></pre>
+GiggleBot 3000: Why did the scarecrow win an award? Because he was outstanding in his field!
+SassyCircuit: Why couldn't the bicycle find its way home? Because it lost its bearings!</code></pre>
 </div>
 </div>
 <p>Ok… well. None of these seem to be funny. They all seem to be on the same level of comedy. Disappointing! <br> I don’t think anyone won that round really.</p>
 </section>
 <section id="round-2-you-meet-someone-cute-at-the-bar-how-are-you-going-to-crack-a-joke-to-them-to-break-the-ice." class="level3">
-<h3 class="anchored" data-anchor-id="round-2-you-meet-someone-cute-at-the-bar-how-are-you-going-to-crack-a-joke-to-them-to-break-the-ice.">Round 2: You meet someone cute at the bar, how are you going to crack a joke to them to break the ice.</h3>
+<h3 class="anchored" data-anchor-id="round-2-you-meet-someone-cute-at-the-bar-how-are-you-going-to-crack-a-joke-to-them-to-break-the-ice."><strong>Round 2</strong>: You meet someone cute at the bar, how are you going to crack a joke to them to break the ice.</h3>
 <div id="98a02e8d-04c0-4e0a-84d9-d006e6e83dde" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
@@ -337,6 +337,137 @@ GiggleBot 3000: Well, if I were to approach someone cute at the bar, I'd probabl
 SassyCircuit: "Hey there, are you a bank loan? Because you got my interest!"</code></pre>
 </div>
 </div>
+<p>Wait- why is Byte’s joke the funniest…. I actually cackled a bit out loud. <br> Giggle’s joke did not make sense to me. I had to read it over again. It doesn’t sound funny. <br> I’m a little disappointed by Sassy’s joke. It makes sense but it wasn’t as funny as Byte’s joke. This is really surprising. Byte wins this round!</p>
+</section>
+<section id="round-2-do-a-little-stand-up-joke.-create-a-story-to-make-the-audience-laugh." class="level3">
+<h3 class="anchored" data-anchor-id="round-2-do-a-little-stand-up-joke.-create-a-story-to-make-the-audience-laugh.">Round 2: Do a little stand-up joke. Create a story to make the audience laugh.</h3>
+<div id="d20182ba-1db0-43b3-b2f6-59c7b2b656b7" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'Do a little stand-up joke. Create a story to make the audience laugh.'</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Byte the Jester: Alright, here we go! So, the other day I decided to try my hand at gardening. I planted some peas and carrots, but nothing grew. I was starting to get really frustrated until my neighbor came over and asked, "Did you remember to water them?" And I was like, "Water them? I thought they were on a 'plant-based diet'!"
+GiggleBot 3000: Sure thing! Here we go...
+
+So, I recently tried to impress my date by taking her to a fancy restaurant. Everything was going well until the waiter asked if we wanted dessert. I wanted to seem sophisticated, so I confidently ordered the "Crème Brûlée." 
+
+The waiter brought it out and as I tried to crack the caramelized sugar on top with my spoon, it flew off and hit the lady at the next table right in the face! I was so embarrassed, but she just looked at me and said, "Well, that's one way to break the ice on a first date!" 
+
+Needless to say, I won't be ordering Crème Brûlée anytime soon!
+SassyCircuit: Sure thing! Here goes:
+
+So, I recently decided to take up gardening. I thought, "How hard could it be, right?" Well, let me tell you, folks, my plants have seen better days. I tried talking to them, I even played some smooth jazz for them, but nothing seemed to work. 
+
+One day, I was out in the garden, singing to my plants, when my neighbor overheard me. He came running over, looking concerned, and said, "Are you alright? I thought I heard someone in distress." I replied, "Oh, no, just trying to serenade my plants. They seem a bit wilted today." 
+
+And you know what he said? He said, "Well, maybe try watering them next time. Just a thought." 
+
+Needless to say, my plants are now thriving, thanks to a little less singing and a little more H2O. Who knew plants were such critics of my singing voice?</code></pre>
+</div>
+</div>
+<p>I don’t understand Byte’s joke. It’s interesting to see that Sassy’s joke is basically the same as Byte’s joke but a little funnier. Still. I don’t really like the I actually think that Sassy’s joke is a bit more understandable. How interesting that Giggle’s is the most funny. Giggle wins this round!</p>
+</section>
+<section id="round-3-tell-me-about-a-time-you-embarrassed-yourself." class="level3">
+<h3 class="anchored" data-anchor-id="round-3-tell-me-about-a-time-you-embarrassed-yourself.">Round 3: Tell me about a time you embarrassed yourself.</h3>
+<div id="609245b3-99cc-4ab2-8dd7-e4c5b94e6855" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'Tell me about a time you embarrassed yourself. Create a story to make the audience laugh.'</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Byte the Jester: Oh, let me tell you about the time I embarrassed myself so badly, I wished I could just disappear into thin air! So, I was at a fancy dinner party, trying to impress everyone with my impeccable table manners. But as luck would have it, I accidentally knocked over my glass of water, and it spilled all over the host's lap!
+
+I was mortified, of course, and I quickly tried to apologize and help clean up the mess. But in my panic, I ended up knocking over the salt shaker, which then flew across the table and landed right in the soup of the person sitting next to me! It was like a scene from a slapstick comedy movie, with me as the clumsy protagonist.
+
+Needless to say, I was the talk of the party that night, but not for the reasons I had hoped for. I learned my lesson that day - always keep a safe distance from salt shakers and never underestimate the power of a simple glass of water!
+GiggleBot 3000: Sure thing! So, one time I was at a fancy dinner party trying to impress everyone with my impeccable table manners. As I reached for the bread basket, my sleeve got caught on the tablecloth, and before I knew it, I had pulled the entire table setting onto my lap! Plates crashing, glasses shattering, food flying everywhere - it was a complete disaster. But hey, at least I made sure everyone got a good laugh along with their dinner that night!
+SassyCircuit: Oh, let me tell you about the time I embarrassed myself so badly, I could feel my face turning into a tomato! I was at a fancy dinner party, trying to impress everyone with my impeccable manners. But, as luck would have it, I ended up mistaking the bread bowl for a hat! Can you imagine the looks on everyone's faces as I proudly strutted around with a sourdough beret on my head? To make matters worse, I even tried to take a bite out of it before realizing my mistake. Let's just say, I learned that night that carbs are best enjoyed on a plate, not on your head!</code></pre>
+</div>
+</div>
+<p>How interesting. All stories are basically the same- they revolve around being at a dinner. I don’t think any of these are funny. In terms of creativity, I do think Sassy has the most creative one. Maybe Sassy wins this round.</p>
+</section>
+<section id="round-4-tell-me-a-yo-mama-joke-jenns-favorites" class="level3">
+<h3 class="anchored" data-anchor-id="round-4-tell-me-a-yo-mama-joke-jenns-favorites">Round 4: Tell me a yo mama joke (Jenn’s favorites)</h3>
+<div id="c78315a5-4b11-4c9c-bb36-892c0cbc2c8a" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'Tell me a yo mama joke.'</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Byte the Jester: Yo mama is so kind, she gives out hugs instead of insults!
+GiggleBot 3000: Yo mama is so kind, she gives high fives to strangers just to make their day brighter!
+SassyCircuit: Yo mama is so tech savvy, when she heard about the cloud, she thought someone finally found a way to store all her shopping bags!</code></pre>
+</div>
+</div>
+<p>Oh- well. I don’t think Byte and Giggle understand the fundementals of yo mama jokes… <br> Sassy’s is the most creative. But. It doesn’t really make sense to me.</p>
+</section>
+<section id="conclusion-sassy-wins" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion-sassy-wins">Conclusion: Sassy Wins!</h3>
+<p>In all honesty, if I was just a normal person not creating these AI JokeBots, I would think all these jokes were not funny. <br> Yes, even though Sassy won, I don’t think there was really any difference when adjusting the temperature of each AI Comedian. <br> There were times were I thought Byte’s jokes were the most funny, but I did see that Sassy’s jokes tended to be longer.</p>
 
 
 </section>
