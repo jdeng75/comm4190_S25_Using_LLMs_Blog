@@ -331,7 +331,7 @@ Code
 template.invoke({ “context”: “““There are many different types of coffees, but I particularly love very strong coffee taste.”““,”question”: “What coffee should I try?” })
 </details>
 <p>The template can be used as a base for building multiple static, specific prompts. When you format the prompt with specific values, context and question, you get a static prompt ready to be passed into an LLM. <br> <strong>Let’s feed it into an LLM OpenAI model using LangChain</strong>:</p>
-<div id="b8de30ff-ea47-4642-9581-8782a087925a" class="cell" data-execution_count="1">
+<div id="b8de30ff-ea47-4642-9581-8782a087925a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai.llms <span class="im">import</span> OpenAI</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.prompts <span class="im">import</span> PromptTemplate</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -363,7 +363,7 @@ template.invoke({ “context”: “““There are many different types of coff
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">OpenAIError</span>                               Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[1], line 17</span>
+Cell <span class="ansi-green-fg">In[2], line 17</span>
 <span class="ansi-green-fg ansi-bold">      4</span> <span style="font-style:italic;color:rgb(95,135,135)"># both `template` and `model` can be reused many times</span>
 <span class="ansi-green-fg ansi-bold">      6</span> template <span style="color:rgb(98,98,98)">=</span> PromptTemplate<span style="color:rgb(98,98,98)">.</span>from_template(<span style="color:rgb(175,0,0)">"""</span><span style="color:rgb(175,0,0)">Answer the question based on the context</span>
 <span class="ansi-green-fg ansi-bold">      7</span> <span style="color:rgb(175,0,0)">listed below. If the question cannot be answered with the information </span>
