@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -174,8 +208,8 @@ ul.task-list li input[type="checkbox"] {
 <h5 class="anchored" data-anchor-id="i-want-to-see-if-ai-is-able-to-read-love-poems-and-analyze-them-to-the-extent-that-human-beings-analyze-them.-lets-get-started">I want to see if AI is able to read love poems and analyze them to the extent that human beings analyze them. Let’s get started!</h5>
 <p><img src="Val2.jpeg" width="40%"></p>
 </section>
-<section id="a-guy-wrote-me-a-poem-a-while-ago-called-on-fighting-transience-and-i-never-understood-what-it-really-meant" class="level3">
-<h3 class="anchored" data-anchor-id="a-guy-wrote-me-a-poem-a-while-ago-called-on-fighting-transience-and-i-never-understood-what-it-really-meant">A guy wrote me a poem a while ago called “On Fighting Transience” and I never understood what it really meant</h3>
+<section id="on-fighting-transience-was-a-sweet-poem-written-for-me-and-i-never-understood-what-it-really-meant" class="level3">
+<h3 class="anchored" data-anchor-id="on-fighting-transience-was-a-sweet-poem-written-for-me-and-i-never-understood-what-it-really-meant">“On Fighting Transience” was a sweet poem written for me, and I never understood what it really meant</h3>
 <blockquote class="blockquote">
 <p>Jenn: There is a love poem called “On Fighting Transience”, what does this title mean to you?</p>
 </blockquote>
@@ -219,13 +253,97 @@ This poem beautifully captures the <strong>human struggle against transience</st
 <p>Would you like to incorporate these themes into your blog post? This poem ties in perfectly with <strong>Valentine’s Day</strong> because it speaks to <strong>love’s impermanence and the desire to make moments last</strong>.</p>
 </section>
 </section>
-<section id="analysis" class="level1">
-<h1>Analysis</h1>
+<section id="analysis-of-chatgpts-analysis" class="level1">
+<h1>Analysis of ChatGPT’s Analysis</h1>
 <section id="i-think-that-chatgpt-was-able-to-do-a-pretty-accurate-analysis-of-the-poem-however-it-really-dives-into-the-symobolism-and-imagery-way-more-over-the-way-a-human-would-describe-the-emotion-of-the-poem-in-their-understanding." class="level6">
 <h6 class="anchored" data-anchor-id="i-think-that-chatgpt-was-able-to-do-a-pretty-accurate-analysis-of-the-poem-however-it-really-dives-into-the-symobolism-and-imagery-way-more-over-the-way-a-human-would-describe-the-emotion-of-the-poem-in-their-understanding.">I think that ChatGPT was able to do a pretty accurate analysis of the poem, however, it really dives into the symobolism and imagery way more over the way a human would describe the emotion of the poem in their understanding.</h6>
-
-
 </section>
+</section>
+<section id="but-can-generativeai-write-poems-that-are-similar-to-this" class="level1">
+<h1>But Can GenerativeAI Write Poems That Are Similar to This?</h1>
+<section id="lets-find-out." class="level3">
+<h3 class="anchored" data-anchor-id="lets-find-out.">Let’s find out.</h3>
+<div id="6125595f-822d-47b6-ba1f-79f060b98e3c" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> openai <span class="im">import</span> OpenAI</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown, display</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load API key</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> load_dotenv()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.messages <span class="im">import</span> HumanMessage, SystemMessage</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai.chat_models <span class="im">import</span> ChatOpenAI</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the ChatOpenAI model</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> ChatOpenAI(model<span class="op">=</span><span class="st">"gpt-4-turbo"</span>)  <span class="co"># Ensure you set the correct model</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># System message defining role</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>poemMsg <span class="op">=</span> SystemMessage(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are a poet who specializes in love poems.'''</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a poem</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">"Write one with the title 'On Fighting Transience' and make it revolve around someone you're falling in love with."</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Invoke the AI model with system and human messages</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>poemResponse <span class="op">=</span> model.invoke([poemMsg, human_msg])</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the generated poem</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Here's the poem:"</span>, poemResponse.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Here's the poem: **On Fighting Transience**
+
+Amid the fleeting hours of dusk and dawn,
+Where shadows play on the boundaries of day,
+I find my heart coerced and sweetly drawn
+To her laughter which unfolds in a gentle ballet.
+  
+The ephemeral dance of night and light
+Recites the fears of transience in my ear,
+Yet, in her eyes, I see stars burning bright,
+An endless cosmos, vanquishing the fear.
+
+Oh, how do I tell her, how do I say,
+That her smile defeats the tempest of passing days?
+Or that her touch is the April to my May,
+Mending time's fabric with her tender gaze.
+
+In her presence, the tick-tock of clocks softens,
+My fleeting life caught in her amber locks.
+Each moment with her, my spirit emboldens,
+Roots growing deep into her earthly rocks.
+
+We laugh, and the world’s impermanence fades,
+Beneath jokes shared and sweet serenades.
+In her arms, the specter of decay degrades,
+As our love, a fortress against transeunt parades.
+
+Though we stand on the brim of time's great sea,
+Watching days like waves disappear,
+In her love, I find the key,
+To bind the moment, hold it forever near.
+
+Thus, we fight against the swift currents of time,
+Building our castle from sands of our golden prime,
+Denying the dusk its melancholy chime,
+For in love, oh, in love — we redefine the sublime.</code></pre>
+</div>
+</div>
+</section>
+<section id="analysis-of-genai-poem" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-of-genai-poem">Analysis of GenAI Poem</h3>
+<p>While it’s not as personalized as the human written poem, the language of the poem is still beautiful. <br> It’s interesting to see how the poem is about a girl, I was interested to see what gender they would assign to the lover. <br> The poem is really structured, as therer are 7 stanzas all having four lines. <br> I think this could pass off as a human written poem, though it sounds more old-style than the casual and informal poems we see today.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>GenAI can write a good poem if you give it a specific prompt. Though, it’s not as specific and personalized as the one a good human poet could write. Perhaps if I gave it more parameters,</p>
+
+
 </section>
 
 </main> <!-- /main -->
