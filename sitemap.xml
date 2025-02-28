@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/007_LangChain/index7.html</loc>
-    <lastmod>2025-02-28T16:43:01.012Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/006_Partiful_Invitations/index6.html</loc>
-    <lastmod>2025-02-28T16:43:01.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/001_Drawing_post/index1.html</loc>
-    <lastmod>2025-02-28T16:43:00.980Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/008_ComedyClub/index8.html</loc>
-    <lastmod>2025-02-28T16:43:01.015Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/about.html</loc>
-    <lastmod>2025-02-28T16:43:00.979Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/index.html</loc>
-    <lastmod>2025-02-28T16:43:00.979Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/005_Makeup_Guru/index5.html</loc>
-    <lastmod>2025-02-28T16:43:00.999Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/004_Valentines_Day/index4.html</loc>
-    <lastmod>2025-02-28T16:43:00.999Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/002_Dinner_Suggestions/index2.html</loc>
-    <lastmod>2025-02-28T16:43:00.995Z</lastmod>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/009_AI_Relationships/index9.html</loc>
+    <lastmod>2025-02-28T16:50:56.609Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/003_AI_Hallucination/index3.html</loc>
-    <lastmod>2025-02-28T16:43:00.998Z</lastmod>
+    <lastmod>2025-02-28T16:50:56.591Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/002_Dinner_Suggestions/index2.html</loc>
+    <lastmod>2025-02-28T16:50:56.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/004_Valentines_Day/index4.html</loc>
+    <lastmod>2025-02-28T16:50:56.592Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/005_Makeup_Guru/index5.html</loc>
+    <lastmod>2025-02-28T16:50:56.592Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/index.html</loc>
+    <lastmod>2025-02-28T16:50:56.572Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/about.html</loc>
+    <lastmod>2025-02-28T16:50:56.572Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/008_ComedyClub/index8.html</loc>
+    <lastmod>2025-02-28T16:50:56.609Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/001_Drawing_post/index1.html</loc>
+    <lastmod>2025-02-28T16:50:56.573Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/006_Partiful_Invitations/index6.html</loc>
+    <lastmod>2025-02-28T16:50:56.598Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/007_LangChain/index7.html</loc>
+    <lastmod>2025-02-28T16:50:56.605Z</lastmod>
   </url>
 </urlset>

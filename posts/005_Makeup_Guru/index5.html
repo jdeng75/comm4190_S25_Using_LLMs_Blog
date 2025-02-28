@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -164,6 +198,59 @@ ul.task-list li input[type="checkbox"] {
 <section id="can-generative-ai-find-me-the-best-makeup-mentor" class="level1">
 <h1>Can Generative AI find me the best makeup mentor?</h1>
 <p>I’m interested to see whether I can create 5 different SVGs of makeup artists and have them give tips for certain pictures of models.</p>
+<details>
+<summary>
+Show Code
+</summary>
+<p>import svgwrite</p>
+<p>def create_makeup_artist_svg(filename, face_color, hair_color, lips_color, eyeshadow_color): dwg = svgwrite.Drawing(filename, profile=‘tiny’, size=(“200px”, “200px”))</p>
+<pre><code># Face
+dwg.add(dwg.circle(center=(100, 100), r=50, fill=face_color))
+
+# Hair
+dwg.add(dwg.rect(insert=(50, 40), size=(100, 80), fill=hair_color, rx=20, ry=20))
+
+# Eyes
+dwg.add(dwg.circle(center=(80, 90), r=5, fill="black"))
+dwg.add(dwg.circle(center=(120, 90), r=5, fill="black"))
+
+# Eyeshadow
+dwg.add(dwg.ellipse(center=(80, 85), r=(10, 5), fill=eyeshadow_color, opacity=0.6))
+dwg.add(dwg.ellipse(center=(120, 85), r=(10, 5), fill=eyeshadow_color, opacity=0.6))
+
+# Lips
+dwg.add(dwg.ellipse(center=(100, 120), r=(15, 8), fill=lips_color))
+
+# Save SVG
+dwg.save()</code></pre>
+</details></section>
+<section id="creating-5-different-makeup-artist-svgs" class="level1">
+<h1>Creating 5 different makeup artist SVGs</h1>
+<p>create_makeup_artist_svg(“makeup_artist_1.svg”, “#F5CBA7”, “#4A2D21”, “#E74C3C”, “#9B59B6”) create_makeup_artist_svg(“makeup_artist_2.svg”, “#FAE5D3”, “#3B3B3B”, “#D35400”, “#2980B9”) create_makeup_artist_svg(“makeup_artist_3.svg”, “#FAD7A0”, “#1C1C1C”, “#C0392B”, “#16A085”) create_makeup_artist_svg(“makeup_artist_4.svg”, “#FDEBD0”, “#6E2C00”, “#A93226”, “#8E44AD”) create_makeup_artist_svg(“makeup_artist_5.svg”, “#E59866”, “#512E5F”, “#E74C3C”, “#2471A3”)</p>
+
+<svg width="200" height="200" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="100" cy="100" r="50" fill="#F5CBA7"></circle> <rect x="50" y="40" width="100" height="80" rx="20" ry="20" fill="#4A2D21"></rect> <circle cx="80" cy="90" r="5" fill="black"></circle> <circle cx="120" cy="90" r="5" fill="black"></circle> <ellipse cx="80" cy="85" rx="10" ry="5" fill="#9B59B6" opacity="0.6"></ellipse> <ellipse cx="120" cy="85" rx="10" ry="5" fill="#9B59B6" opacity="0.6"></ellipse> <ellipse cx="100" cy="120" rx="15" ry="8" fill="#E74C3C"></ellipse>
+</svg>
+<svg width="200" height="200" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="100" cy="100" r="50" fill="#FAE5D3"></circle> <rect x="50" y="40" width="100" height="80" rx="20" ry="20" fill="#3B3B3B"></rect> <circle cx="80" cy="90" r="5" fill="black"></circle> <circle cx="120" cy="90" r="5" fill="black"></circle> <ellipse cx="80" cy="85" rx="10" ry="5" fill="#2980B9" opacity="0.6"></ellipse> <ellipse cx="120" cy="85" rx="10" ry="5" fill="#2980B9" opacity="0.6"></ellipse> <ellipse cx="100" cy="120" rx="15" ry="8" fill="#D35400"></ellipse>
+</svg>
+<svg width="200" height="200" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="100" cy="100" r="50" fill="#FAD7A0"></circle> <rect x="50" y="40" width="100" height="80" rx="20" ry="20" fill="#1C1C1C"></rect> <circle cx="80" cy="90" r="5" fill="black"></circle> <circle cx="120" cy="90" r="5" fill="black"></circle> <ellipse cx="80" cy="85" rx="10" ry="5" fill="#16A085" opacity="0.6"></ellipse> <ellipse cx="120" cy="85" rx="10" ry="5" fill="#16A085" opacity="0.6"></ellipse> <ellipse cx="100" cy="120" rx="15" ry="8" fill="#C0392B"></ellipse>
+</svg>
+<svg width="200" height="200" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="100" cy="100" r="50" fill="#FDEBD0"></circle> <rect x="50" y="40" width="100" height="80" rx="20" ry="20" fill="#6E2C00"></rect> <circle cx="80" cy="90" r="5" fill="black"></circle> <circle cx="120" cy="90" r="5" fill="black"></circle> <ellipse cx="80" cy="85" rx="10" ry="5" fill="#8E44AD" opacity="0.6"></ellipse> <ellipse cx="120" cy="85" rx="10" ry="5" fill="#8E44AD" opacity="0.6"></ellipse> <ellipse cx="100" cy="120" rx="15" ry="8" fill="#A93226"></ellipse>
+</svg>
+<div id="bddf76c9-25c1-4a47-922f-53aae8f7f583" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>svg width<span class="op">=</span><span class="st">"200"</span> height<span class="op">=</span><span class="st">"200"</span> viewBox<span class="op">=</span><span class="st">"0 0 200 200"</span> xmlns<span class="op">=</span><span class="st">"http://www.w3.org/2000/svg"</span><span class="op">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>circle cx<span class="op">=</span><span class="st">"100"</span> cy<span class="op">=</span><span class="st">"100"</span> r<span class="op">=</span><span class="st">"50"</span> fill<span class="op">=</span><span class="st">"#E59866"</span><span class="op">/&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>rect x<span class="op">=</span><span class="st">"50"</span> y<span class="op">=</span><span class="st">"40"</span> width<span class="op">=</span><span class="st">"100"</span> height<span class="op">=</span><span class="st">"80"</span> rx<span class="op">=</span><span class="st">"20"</span> ry<span class="op">=</span><span class="st">"20"</span> fill<span class="op">=</span><span class="st">"#512E5F"</span><span class="op">/&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>circle cx<span class="op">=</span><span class="st">"80"</span> cy<span class="op">=</span><span class="st">"90"</span> r<span class="op">=</span><span class="st">"5"</span> fill<span class="op">=</span><span class="st">"black"</span><span class="op">/&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>circle cx<span class="op">=</span><span class="st">"120"</span> cy<span class="op">=</span><span class="st">"90"</span> r<span class="op">=</span><span class="st">"5"</span> fill<span class="op">=</span><span class="st">"black"</span><span class="op">/&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>ellipse cx<span class="op">=</span><span class="st">"80"</span> cy<span class="op">=</span><span class="st">"85"</span> rx<span class="op">=</span><span class="st">"10"</span> ry<span class="op">=</span><span class="st">"5"</span> fill<span class="op">=</span><span class="st">"#2471A3"</span> opacity<span class="op">=</span><span class="st">"0.6"</span><span class="op">/&gt;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>ellipse cx<span class="op">=</span><span class="st">"120"</span> cy<span class="op">=</span><span class="st">"85"</span> rx<span class="op">=</span><span class="st">"10"</span> ry<span class="op">=</span><span class="st">"5"</span> fill<span class="op">=</span><span class="st">"#2471A3"</span> opacity<span class="op">=</span><span class="st">"0.6"</span><span class="op">/&gt;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>ellipse cx<span class="op">=</span><span class="st">"100"</span> cy<span class="op">=</span><span class="st">"120"</span> rx<span class="op">=</span><span class="st">"15"</span> ry<span class="op">=</span><span class="st">"8"</span> fill<span class="op">=</span><span class="st">"#E74C3C"</span><span class="op">/&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>svg<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
