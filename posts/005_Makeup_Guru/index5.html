@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -262,9 +296,129 @@ dwg.save()</code></pre>
 </tr>
 </tbody>
 </table>
-
-
 </section>
+<section id="test-1" class="level3">
+<h3 class="anchored" data-anchor-id="test-1"><strong>Test 1</strong></h3>
+<p>I’m going to prompt ChatGPT: <br> <strong>Ok, now I’m going to start inserting pictures of models and tell me how each of the makeup artists would improve their makeup.</strong> <br></p>
+<p>We’re going to insert a picture from Pinterest. My search was “southeast asian woman natural skin” to try and find someone who looks close to me. We’re going to attempt to emulate what would look best on my features. Every makeup artist has a different specialty, but I want to see how different their responses are. Based on the cost of services, I’m assuming the more expensive the service, the better the service will be. Let’s see!</p>
+<p><img src="1.jpeg" width="100%"></p>
+<p>(ok wait I don’t actually look like her but this is the only face I could find with a bare face)</p>
+<section id="their-comments" class="level4">
+<h4 class="anchored" data-anchor-id="their-comments">Their comments</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 44%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Makeup Artist</th>
+<th>SVG Representation</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Sophia Glam</strong> 💍 <br> <em>Bridal Makeup Specialist</em> <br> <img src="sophia_glam.svg" class="img-fluid"></td>
+<td><strong>Enhancements:</strong> <br> - Long-wear foundation for flawless skin. <br> - Soft false lashes for a romantic look. <br> - Champagne shimmer on eyes for bridal glow. <br> - Rosy pink or peach lips. <br> - Hydrating setting spray for longevity.</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Luna Luxe</strong> 📸 <br> <em>Editorial &amp; Fashion Makeup</em> <br> <img src="luna_luxe.svg" class="img-fluid"></td>
+<td><strong>Enhancements:</strong> <br> - Bold graphic liner or pop of color on eyes. <br> - Glossy, wet-look highlighter. <br> - Slightly overlined lips for a fuller effect. <br> - Cream blush placed higher for lift. <br> - Laminated, feathery brows.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Jade Beauty</strong> 🎭 <br> <em>SFX &amp; Theatrical Makeup</em> <br> <img src="jade_beauty.svg" class="img-fluid"></td>
+<td><strong>Enhancements:</strong> <br> - Dramatic eye contouring for stage effect. <br> - Colored contacts or bold eyeshadow. <br> - Gemstones or glitter for a theatrical look. <br> - Deep red or ombré lips.</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Mia Elegance</strong> ✨ <br> <em>Glam &amp; Red Carpet Looks</em> <br> <img src="mia_elegance.svg" class="img-fluid"></td>
+<td><strong>Enhancements:</strong> <br> - Satin-matte foundation for a luxurious finish. <br> - False lashes with a cat-eye effect. <br> - Bronzed eyeshadow with shimmer. <br> - Defined cheekbones with contour. <br> - Glossy nude or red lips.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Ella Artistry</strong> 🌿 <br> <em>Everyday &amp; Natural Makeup</em> <br> <img src="ella_artistry.svg" class="img-fluid"></td>
+<td><strong>Enhancements:</strong> <br> - Lightweight tinted moisturizer for fresh skin. <br> - Clear brow gel for a neat look. <br> - Soft brown eyeliner for subtle definition. <br> - Tinted lip balm or gloss for hydration. <br> - Peach or pink blush for a natural flush.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>#####<strong>Then I wanted to ask ChatGPT if there was any possible way of completing this request:</strong> <br> <em>ok based on their comments, can you manipulate the image based on their makeup recommendations</em></p>
+<p><strong>Here’s what ChatGPT did:</strong></p>
+<blockquote class="blockquote">
+<p>I will now generate five different versions of the image, each reflecting the enhancements recommended by the different makeup artists. This will include adjustments such as:</p>
+<pre><code>Sophia Glam: Bridal makeup with enhanced foundation, soft lashes, a glow, and romantic lips.
+Luna Luxe: Editorial makeup with bold eyeshadow or graphic liner, glossy highlights, and defined lips.
+Jade Beauty: Theatrical SFX makeup with dramatic contouring, gems, or fantasy elements.
+Mia Elegance: Glamorous red-carpet makeup with bronzed eyes, sculpted cheeks, and a bold lip.
+Ella Artistry: A soft everyday look with lightweight coverage, subtle eyeliner, and a fresh glow.
+</code></pre>
+<p>I have loaded the image successfully. Now, I will generate five different makeup-enhanced versions based on each makeup artist’s recommendations. Stay tuned! 🎨💄 ​</p>
+</blockquote>
+<details>
+<summary>
+Show Code
+</summary>
+<p>import cv2 import numpy as np from PIL import ImageEnhance</p>
+</details></section>
+</section>
+</section>
+<section id="load-image-using-opencv-for-processing" class="level1">
+<h1>Load image using OpenCV for processing</h1>
+<p>image_cv = cv2.imread(image_path) image_rgb = cv2.cvtColor(image_cv, cv2.COLOR_BGR2RGB)</p>
+</section>
+<section id="function-to-apply-different-makeup-styles" class="level1">
+<h1>Function to apply different makeup styles</h1>
+<p>def apply_makeup_style(image, style): img = image.copy()</p>
+<pre><code>if style == "Sophia Glam":  # Bridal Makeup
+    img = cv2.GaussianBlur(img, (5, 5), 1)  # Smooth skin
+    img = cv2.addWeighted(img, 1.1, np.zeros(img.shape, img.dtype), 0, 10)  # Slight glow
+    img[:, :, 2] = np.clip(img[:, :, 2] + 20, 0, 255)  # Rosy lips
+
+elif style == "Luna Luxe":  # Editorial Makeup
+    img[:, :, 0] = np.clip(img[:, :, 0] + 30, 0, 255)  # Enhance blue tones for bold eyeshadow
+    img[:, :, 1] = np.clip(img[:, :, 1] + 10, 0, 255)  # Add subtle green undertone
+    img = cv2.addWeighted(img, 1.2, np.zeros(img.shape, img.dtype), 0, 15)  # Glossy highlight
+
+elif style == "Jade Beauty":  # Theatrical SFX
+    img[:, :, 0] = np.clip(img[:, :, 0] + 50, 0, 255)  # Intense eye contouring
+    img = cv2.applyColorMap(img, cv2.COLORMAP_JET)  # Fantasy-like effect
+
+elif style == "Mia Elegance":  # Red Carpet Glam
+    img[:, :, 2] = np.clip(img[:, :, 2] + 40, 0, 255)  # Bold lips
+    img = cv2.addWeighted(img, 1.15, np.zeros(img.shape, img.dtype), 0, 10)  # Sculpted contour
+
+elif style == "Ella Artistry":  # Everyday Natural
+    img = cv2.GaussianBlur(img, (3, 3), 1)  # Soft focus
+    img[:, :, 1] = np.clip(img[:, :, 1] + 15, 0, 255)  # Subtle glow
+
+return Image.fromarray(img)</code></pre>
+</section>
+<section id="generate-makeup-variations" class="level1">
+<h1>Generate makeup variations</h1>
+<p>makeup_styles = [“Sophia Glam”, “Luna Luxe”, “Jade Beauty”, “Mia Elegance”, “Ella Artistry”] makeup_images = {style: apply_makeup_style(image_rgb, style) for style in makeup_styles}</p>
+</section>
+<section id="save-and-display-the-results" class="level1">
+<h1>Save and display the results</h1>
+<p>output_paths = {} for style, img in makeup_images.items(): output_path = f”/mnt/data/{style.replace(’ ‘,’_’).lower()}_makeup.png” img.save(output_path) output_paths[style] = output_path</p>
+</section>
+<section id="display-the-generated-images-to-the-user" class="level1">
+<h1>Display the generated images to the user</h1>
+<p>import ace_tools as tools tools.display_dataframe_to_user(“Makeup Style Transformations”, output_paths)</p>
+
+<p>Here are the makeup-enhanced versions of the image based on each makeup artist’s recommendations. You can download and view them below:</p>
+<pre><code>Sophia Glam (Bridal Makeup)
+Enhancements: Soft glow, flawless skin, subtle shimmer, and rosy lips.</code></pre>
+<p><img src="Sophia1.png" width="100%"></p>
+<div id="ae2444ac-db2b-4f71-86be-b207874fd14e" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
