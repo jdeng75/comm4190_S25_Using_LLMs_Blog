@@ -198,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="can-generative-ai-find-me-the-best-makeup-mentor" class="level1">
 <h1>Can Generative AI find me the best makeup mentor?</h1>
 <p><img src="00.jpeg" width="100%"></p>
-<p>I’m interested to see whether I can create 5 different SVGs of makeup artists and have them give tips for certain pictures of models.</p>
+<p>Recently, I’ve been getting more interest in makeup because my friends all around me wear it. Whether to hide a pimple, dark underseyes, or just put more glitter on their faces, I want to also understand how to use certain products to acheive a specific look. But I need help. Youtube videos are too long, blog posts don’t give enough visuals, and I just don’t know anyone on the internet who looks similar to me. I don’t know what my foundation type is, I don’t know what blush color looks the best, and I don’t want to be spending well over $100 just to acheive a natural makeup look. <br> <br> I’m interested to see whether I can create 5 different SVGs of makeup artists and have them give tips for certain pictures of models. Maybe then, I can generate tips for how I should go about wearing makeup.</p>
 <details>
 <summary>
 Show Code
@@ -300,7 +300,7 @@ dwg.save()</code></pre>
 </section>
 <section id="test-1" class="level3">
 <h3 class="anchored" data-anchor-id="test-1"><strong>Test 1</strong></h3>
-<p>I’m going to prompt ChatGPT: <br> <strong>Ok, now I’m going to start inserting pictures of models and tell me how each of the makeup artists would improve their makeup.</strong> <br></p>
+<p>I’m going to prompt ChatGPT: <br> <em>Ok, now I’m going to start inserting pictures of models and tell me how each of the makeup artists would improve their makeup.</em> <br> <br></p>
 <p>We’re going to insert a picture from Pinterest. My search was “southeast asian woman natural skin” to try and find someone who looks close to me. We’re going to attempt to emulate what would look best on my features. Every makeup artist has a different specialty, but I want to see how different their responses are. Based on the cost of services, I’m assuming the more expensive the service, the better the service will be. Let’s see!</p>
 <p><img src="1.jpeg" width="100%"></p>
 <p>(ok wait I don’t actually look like her but this is the only face I could find with a bare face)</p>
@@ -321,32 +321,13 @@ dwg.save()</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Sophia Glam</strong> 💍 <br> <em>Bridal Makeup Specialist</em> <br> <img src="sophia_glam.svg" class="img-fluid"></td>
-<td><strong>Enhancements:</strong> <br> - Long-wear foundation for flawless skin. <br> - Soft false lashes for a romantic look. <br> - Champagne shimmer on eyes for bridal glow. <br> - Rosy pink or peach lips. <br> - Hydrating setting spray for longevity.</td>
+<td><strong>Sophia Glam</strong> 💍 <br> <em>Bridal Makeup Specialist</em> <br> <svg width="200" height="220" xmlns="http://www.w3.org/2000/svg"></svg></td>
 <td></td>
-</tr>
-<tr class="even">
-<td><strong>Luna Luxe</strong> 📸 <br> <em>Editorial &amp; Fashion Makeup</em> <br> <img src="luna_luxe.svg" class="img-fluid"></td>
-<td><strong>Enhancements:</strong> <br> - Bold graphic liner or pop of color on eyes. <br> - Glossy, wet-look highlighter. <br> - Slightly overlined lips for a fuller effect. <br> - Cream blush placed higher for lift. <br> - Laminated, feathery brows.</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>Jade Beauty</strong> 🎭 <br> <em>SFX &amp; Theatrical Makeup</em> <br> <img src="jade_beauty.svg" class="img-fluid"></td>
-<td><strong>Enhancements:</strong> <br> - Dramatic eye contouring for stage effect. <br> - Colored contacts or bold eyeshadow. <br> - Gemstones or glitter for a theatrical look. <br> - Deep red or ombré lips.</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>Mia Elegance</strong> ✨ <br> <em>Glam &amp; Red Carpet Looks</em> <br> <img src="mia_elegance.svg" class="img-fluid"></td>
-<td><strong>Enhancements:</strong> <br> - Satin-matte foundation for a luxurious finish. <br> - False lashes with a cat-eye effect. <br> - Bronzed eyeshadow with shimmer. <br> - Defined cheekbones with contour. <br> - Glossy nude or red lips.</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>Ella Artistry</strong> 🌿 <br> <em>Everyday &amp; Natural Makeup</em> <br> <img src="ella_artistry.svg" class="img-fluid"></td>
-<td><strong>Enhancements:</strong> <br> - Lightweight tinted moisturizer for fresh skin. <br> - Clear brow gel for a neat look. <br> - Soft brown eyeliner for subtle definition. <br> - Tinted lip balm or gloss for hydration. <br> - Peach or pink blush for a natural flush.</td>
 <td></td>
 </tr>
 </tbody>
 </table>
+<p><circle cx="100" cy="100" r="50" fill="#F5CBA7"> <rect x="50" y="40" width="100" height="80" rx="20" ry="20" fill="#4A2D21"> <circle cx="80" cy="90" r="5" fill="black"> <circle cx="120" cy="90" r="5" fill="black"> <ellipse cx="80" cy="85" rx="10" ry="5" fill="#9B59B6" opacity="0.6"> <ellipse cx="120" cy="85" rx="10" ry="5" fill="#9B59B6" opacity="0.6"> <ellipse cx="100" cy="120" rx="15" ry="8" fill="#E74C3C"> <text x="50" y="180" font-size="14" fill="black">Sophia Glam</text> <text x="40" y="195" font-size="12" fill="gray">Bridal Makeup Specialist</text>  | <strong>Enhancements:</strong> <br> - Long-wear foundation for flawless skin. <br> - Soft false lashes for a romantic look. <br> - Champagne shimmer on eyes for bridal glow. <br> - Rosy pink or peach lips. <br> - Hydrating setting spray for longevity. | | <strong>Luna Luxe</strong> 📸 <br> <em>Editorial &amp; Fashion Makeup</em> <br> <img src="luna_luxe.svg" class="img-fluid"> | <strong>Enhancements:</strong> <br> - Bold graphic liner or pop of color on eyes. <br> - Glossy, wet-look highlighter. <br> - Slightly overlined lips for a fuller effect. <br> - Cream blush placed higher for lift. <br> - Laminated, feathery brows. | | <strong>Jade Beauty</strong> 🎭 <br> <em>SFX &amp; Theatrical Makeup</em> <br> <img src="jade_beauty.svg" class="img-fluid"> | <strong>Enhancements:</strong> <br> - Dramatic eye contouring for stage effect. <br> - Colored contacts or bold eyeshadow. <br> - Gemstones or glitter for a theatrical look. <br> - Deep red or ombré lips. | | <strong>Mia Elegance</strong> ✨ <br> <em>Glam &amp; Red Carpet Looks</em> <br> <img src="mia_elegance.svg" class="img-fluid"> | <strong>Enhancements:</strong> <br> - Satin-matte foundation for a luxurious finish. <br> - False lashes with a cat-eye effect. <br> - Bronzed eyeshadow with shimmer. <br> - Defined cheekbones with contour. <br> - Glossy nude or red lips. | | <strong>Ella Artistry</strong> 🌿 <br> <em>Everyday &amp; Natural Makeup</em> <br> <img src="ella_artistry.svg" class="img-fluid"> | <strong>Enhancements:</strong> <br> - Lightweight tinted moisturizer for fresh skin. <br> - Clear brow gel for a neat look. <br> - Soft brown eyeliner for subtle definition. <br> - Tinted lip balm or gloss for hydration. <br> - Peach or pink blush for a natural flush. |</ellipse></ellipse></ellipse></circle></circle></rect></circle></p>
 <section id="then-i-wanted-to-ask-chatgpt-if-there-was-any-possible-way-of-completing-this-request" class="level5">
 <h5 class="anchored" data-anchor-id="then-i-wanted-to-ask-chatgpt-if-there-was-any-possible-way-of-completing-this-request"><strong>Then I wanted to ask ChatGPT if there was any possible way of completing this request:</strong> <br></h5>
 <p><em>ok based on their comments, can you manipulate the image based on their makeup recommendations</em></p>
