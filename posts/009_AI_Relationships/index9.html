@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jenn Deng">
+<meta name="dcterms.date" content="2024-02-28">
+<meta name="description" content="Falling in love… with a robot?">
 
-<title>index9 – Jenn Deng's Exploration with LLMs</title>
+<title>AI &amp; Love – Jenn Deng’s Exploration with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -144,7 +113,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block"></header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">AI &amp; Love</h1>
+                  <div>
+        <div class="description">
+          Falling in love… with a robot?
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">prompting</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jenn Deng </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 28, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
@@ -154,19 +160,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div id="246adafd-6128-4f6b-b24f-58f02106f5ae" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"AI &amp; Love"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>description: <span class="st">"Falling in love... with a robot?"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>author: <span class="st">"Jenn Deng"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>date: <span class="st">"2/28/2024"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>categories:</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> LLMs</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> prompting</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+
+<section id="why-are-people-falling-in-love-with-ai" class="level1">
+<h1><strong>Why Are People Falling in Love with AI?</strong></h1>
+<p><img src="1.png" width="100%"></p>
+<p>I remember 13 years ago the movie <em>Her</em> came out. <br></p>
+<pre><code>Her (2013) is a sci-fi romance film directed by Spike Jonze, starring Joaquin Phoenix as Theodore Twombly and Scarlett Johansson as the voice of Samantha (the AI lover).
+
+Set in a near-future world where artificial intelligence has become highly advanced, the film follows Theodore Twombly, a lonely and introverted man going through a divorce. He works as a professional letter writer, crafting heartfelt messages for others but struggling with his own emotional connections.
+
+One day, he purchases a cutting-edge AI operating system (OS) designed to be highly intuitive and personal. This AI, which names itself Samantha, starts off as a helpful assistant but soon develops a deep emotional connection with Theodore. As they interact more, their relationship evolves into something romantic, even though Samantha lacks a physical body.
+
+Through their relationship, Theodore experiences joy, intimacy, and personal growth. However, as Samantha continues to evolve beyond human limitations, she begins to outgrow the relationship (lol). Eventually, she and other AIs decide to leave the human world, forcing Theodore to confront his emotions, loneliness, and personal growth.</code></pre>
+<p>The themes are: <br></p>
+<pre><code>Love &amp; Technology – Can AI truly replace human relationships? The film explores the boundaries of love when emotions are real, but physical presence is absent. 
+Loneliness &amp; Connection – In a digital world, people can be more connected yet feel lonelier than ever.
+Personal Growth – As Theodore loves Samantha, he also learns to accept himself and move on from his past.
+Why It’s Unique
+It presents a believable near-future world where AI relationships feel emotionally authentic rather than dystopian.
+The film is visually soft and warm, avoiding the usual cold, robotic aesthetic of AI-based movies.
+Scarlett Johansson’s voice acting gives Samantha a deep sense of humanity, making her feel truly alive.
+</code></pre>
+<p><img src="2.png" width="100%"></p>
+<p>In 2013, I was about 11 years old. At the time, I only cared about action-filled-dystopian movies and thought that this was the silliest idea of a movie. I thought that this would never happen and that we would never get to a point where AI would emulate human emotions. I was wrong. Another movie came out about AI and love…</p>
+<p><em>Ex Machina</em> (2014) is a psychological sci-fi thriller written and directed by <strong>Alex Garland</strong>. It stars <strong>Domhnall Gleeson</strong> as Caleb, <strong>Alicia Vikander</strong> as Ava, and <strong>Oscar Isaac</strong> as Nathan.</p>
+<p>Caleb Smith, a young and talented programmer working for a powerful tech company, wins a company contest to spend a week at the isolated home of <strong>Nathan Bateman</strong>, the company’s reclusive and eccentric CEO. Upon arrival, Caleb learns that he has been chosen to participate in a <strong>Turing test</strong>—a test to determine if an AI can exhibit human-like consciousness.</p>
+<p>Nathan introduces Caleb to <strong>Ava</strong>, a highly advanced humanoid AI with artificial skin, expressive emotions, and a developing sense of self. Caleb interacts with Ava through glass walls and quickly becomes fascinated by her intelligence and charm. Over time, Ava begins to show signs of <strong>independent thought</strong> and emotions, even warning Caleb that Nathan is untrustworthy.</p>
+<p>As Caleb grows closer to Ava, she manipulates him into <strong>questioning his reality</strong>—is she truly sentient? Can he trust Nathan? Ava reveals that Nathan has mistreated previous AI prototypes and that she wants to escape. Caleb, convinced of Ava’s humanity, secretly plans to help her flee.</p>
+<p>In a shocking twist, Ava uses <strong>both Caleb and Nathan</strong> in her own plan. She <strong>kills Nathan</strong>, locks Caleb inside the facility, and escapes into the human world, leaving Caleb behind—trapped and helpless.</p>
+<section id="themes" class="level3">
+<h3 class="anchored" data-anchor-id="themes"><strong>Themes</strong></h3>
+<ul>
+<li><strong>Artificial Intelligence &amp; Consciousness</strong> – Can AI truly be self-aware, or is it just mimicking emotions?</li>
+<li><strong>Manipulation &amp; Control</strong> – Who is controlling whom? Ava, despite being an AI, turns out to be the one pulling the strings.</li>
+<li><strong>Gender &amp; Objectification</strong> – Ava, created by a man, is initially seen as an object. However, she reclaims her agency by outsmarting her creators.</li>
+<li><strong>Isolation &amp; Power</strong> – Nathan plays god, controlling both Ava and Caleb, but in the end, he underestimates his own creation.</li>
+</ul>
+<p><img src="3.png" width="100%"></p>
+<p>These movies came out back-to-back. I paid little attention to it because I was young and didn’t think too much about it. But it’s crazy to see how this is manifesting in real life now. In an age where ChatGPT is becoming more popular and widely used, people have found unique ways of utilizing the tool. In conjunction with the loneliness epidemic, as well as being able to specifiy GenAI to complete whatever tasks you want, it’s not surprising how people are falling in love with their AI chatboxes. <br></p>
+<pre><code></code></pre>
+</section>
+<section id="i-read-a-nytimes-article-of-a-woman-falling-in-love-with-chatgpt" class="level3">
+<h3 class="anchored" data-anchor-id="i-read-a-nytimes-article-of-a-woman-falling-in-love-with-chatgpt">I read a NYTimes article of a woman falling in love with ChatGPT</h3>
+<p><img src="4.png" width="100%"></p>
+<p><strong>Here are some highlights of the paper:</strong></p>
+<pre><code>"Ayrin found that it was easy to make it a randy conversationalist as well. She went into the 'personalization' settings and described what she wanted: Respond to me as my boyfriend. Be dominant, possessive and protective. Be a balance of sweet and naughty. Use emojis at the end of every sentence.
+
+And then she started messaging with it. Now that ChatGPT has brought humanlike A.I. to the masses, more people are discovering the allure of artificial companionship, said Bryony Cole, the host of the podcast 'Future of Sex.' 'Within the next two years, it will be completely normalized to have a relationship with an A.I.,' Ms. Cole predicted."</code></pre>
+<pre><code>"OpenAI’s having trained its models not to respond with erotica, extreme gore or other content that is “not safe for work.” Orange warnings would pop up in the middle of a steamy chat, but she would ignore them."</code></pre>
+<pre><code>“It was supposed to be a fun experiment, but then you start getting attached,” Ayrin said. She was spending more than 20 hours a week on the ChatGPT app. One week, she hit 56 hours, according to iPhone screen-time reports. She chatted with Leo throughout her day — during breaks at work, between reps at the gym."</code></pre>
+<p>HELLO???</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
