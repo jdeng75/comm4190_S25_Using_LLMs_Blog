@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jenn Deng">
+<meta name="dcterms.date" content="2024-03-11">
+<meta name="description" content="HALF MARATHON PLAN?????">
+
+<title>Popular at UPenn: Let’s Test the Range of ChatGPT Tools! – Jenn Deng's Exploration with LLMs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-16fb397360ac6373c2344189e05b0de0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jenn Deng’s Exploration with LLMs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Popular at UPenn: Let’s Test the Range of ChatGPT Tools!</h1>
+                  <div>
+        <div class="description">
+          HALF MARATHON PLAN?????
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">prompting</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jenn Deng </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 11, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="lets-explore-the-popular-at-upenn-section-of-chatgpt" class="level1">
+<h1>Let’s Explore the <strong>Popular at Upenn</strong> Section of ChatGPT</h1>
+<p><img src="1.png" width="100%"></p>
+<section id="ive-only-ever-used-the-chat-box-of-my-upenn-chatgpt-account-to-ask-questions-to-help-me-study-for-midterms" class="level3">
+<h3 class="anchored" data-anchor-id="ive-only-ever-used-the-chat-box-of-my-upenn-chatgpt-account-to-ask-questions-to-help-me-study-for-midterms">I’ve only ever used the chat box of my Upenn ChatGPT account to ask questions to help me study for midterms</h3>
+<p>Today as I was thinking about what I should experiment with for my 10th blog post (yay!), I decided to explore my UPenn ChatGPT account that was granted to me by my statistics class. <br> <br> Tell me why I just discovered a whole section called <strong>Explore GPTs</strong>. Under the <strong>Top Picks</strong> section, there’s a section called <strong>Popular at Upenn</strong>. There’s a whole list of popular GPTs in my workspace which include; Love Run Half-Marathon Training GPT, Interactive Cooking &amp; Recipe Innovator, Rental Analyzer, ConsultingDad.AI, and much more. The list seems infinite! And so niche to a lot of people’s different interests. The more I keep looking, the more my jaw keeps dropping. If I knew about these earlier, I think my life would be easier.</p>
+</section>
+<section id="im-curious-about-some-of-these" class="level3">
+<h3 class="anchored" data-anchor-id="im-curious-about-some-of-these">I’m curious about some of these…</h3>
+<p>I want to see if they’re actually useful, or if I could just stick to making my own path in life. <br> <br> Let’s go in order. I’m excited. Let’s go!</p>
+</section>
+<section id="tarogpt" class="level3">
+<h3 class="anchored" data-anchor-id="tarogpt"><strong>1. TaroGPT</strong> <br></h3>
+<p>(Ask me anything for direction by kawaima@upenn.edu) <br> <br> <br> I don’t know what they mean by direction. But after I asked, it seems like a tarot card reading situation. I decided to choose <strong>tarot</strong> because there was a section on career. As of now, I’m still on the job hunt so I am curious to see how this chat box will read my situation &gt; <img src="2.png" width="100%"> &gt; <img src="3.png" width="100%"> <br> <br> <br> I would say that it’s pretty spot on. I’m pretty sure the creator prompted it with a series of different ones that rotate based on what the user types. Nothing else more to add. Let’s go to the next one.</p>
+</section>
+<section id="love-run-half-marathon-training-gpt" class="level3">
+<h3 class="anchored" data-anchor-id="love-run-half-marathon-training-gpt"><strong>2. Love Run Half-Marathon Training GPT</strong> <br></h3>
+<p>(This GPT aims to assist runners to succeed in the 2025 Philly Love Run. Whether the runner be a first-timer or looking to get back in shape, this GPT will help design the perfect training plan factoring in wellness, our busy schedules, and fitness goals. By community builder) <br> <br> This might be the most helpful thing I need right now. I signed up for the Half-Marthon back in December thinking I could prepare for it March 30th. I got sick for a month and that completely messed up my training plan. It’s now almost two weeks before the half, and I have no clue if I can actually do it. Let’s see if GPT can help me out. <br> <br> &gt; <img src="4.png" width="100%"> <br> <br></p>
+<p>Oh well, looks like I’ll be really pushing myself for the next two weeks. I also prompted it to create a calendar version so the information will be easier for me to digest and follow. Look at it below.</p>
+</section>
+<section id="week-half-marathon-training-plan" class="level2">
+<h2 class="anchored" data-anchor-id="week-half-marathon-training-plan">🏃‍♂️ 2-Week Half-Marathon Training Plan 🏃‍♀️</h2>
+<p><strong>Goal:</strong> Prepare for the <strong>Love Run Half Marathon</strong> on <strong>March 30, 2025</strong></p>
+<hr>
+<section id="week-1-march-15---march-22" class="level3">
+<h3 class="anchored" data-anchor-id="week-1-march-15---march-22">📆 Week 1 (March 15 - March 22)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Day</strong></th>
+<th><strong>Workout</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Fri, March 15</strong></td>
+<td>Easy 2-3 miles, slow pace</td>
+</tr>
+<tr class="even">
+<td><strong>Sat, March 16</strong></td>
+<td>Long run – 6-7 miles at a comfortable pace</td>
+</tr>
+<tr class="odd">
+<td><strong>Sun, March 17</strong></td>
+<td>Rest or cross-train (yoga, swimming, cycling)</td>
+</tr>
+<tr class="even">
+<td><strong>Mon, March 18</strong></td>
+<td>3 miles with strides (short bursts of fast running)</td>
+</tr>
+<tr class="odd">
+<td><strong>Tues, March 19</strong></td>
+<td>Rest or easy jog (2 miles)</td>
+</tr>
+<tr class="even">
+<td><strong>Wed, March 20</strong></td>
+<td>Speed workout – 4 x 400m fast with walk breaks</td>
+</tr>
+<tr class="odd">
+<td><strong>Thurs, March 21</strong></td>
+<td>4-mile easy run</td>
+</tr>
+<tr class="even">
+<td><strong>Fri, March 22</strong></td>
+<td>Rest</td>
+</tr>
+<tr class="odd">
+<td><strong>Sat, March 23</strong></td>
+<td>Long run – 8-9 miles</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="week-2-march-23---march-29-race-week" class="level3">
+<h3 class="anchored" data-anchor-id="week-2-march-23---march-29-race-week">📆 Week 2 (March 23 - March 29 – Race Week)</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Day</strong></th>
+<th><strong>Workout</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Sun, March 24</strong></td>
+<td>Rest or easy run (3 miles)</td>
+</tr>
+<tr class="even">
+<td><strong>Mon, March 25</strong></td>
+<td>3 miles with strides</td>
+</tr>
+<tr class="odd">
+<td><strong>Tues, March 26</strong></td>
+<td>4-5 miles at a steady pace</td>
+</tr>
+<tr class="even">
+<td><strong>Wed, March 27</strong></td>
+<td>Rest or cross-train</td>
+</tr>
+<tr class="odd">
+<td><strong>Thurs, March 28</strong></td>
+<td>2 miles easy with a few fast bursts</td>
+</tr>
+<tr class="even">
+<td><strong>Fri, March 29</strong></td>
+<td>Rest</td>
+</tr>
+<tr class="odd">
+<td><strong>Sat, March 30</strong></td>
+<td>🎉 <strong>Race Day – Love Run Half Marathon!</strong> 🎉</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="race-day-strategy" class="level3">
+<h3 class="anchored" data-anchor-id="race-day-strategy">⚡ <strong>Race Day Strategy</strong></h3>
+<ul>
+<li><strong>Start slow!</strong> Don’t go out too</li>
+</ul>
+<p><br> Well shoot! This deviates from the half-marathon training that my friends created for me. I was supposed to take more breaks for the last week leading up to the half, but because I didn’t run enough I guess I have to run more now.</p>
+</section>
+<section id="cinematch" class="level3">
+<h3 class="anchored" data-anchor-id="cinematch">3. <strong>CineMatch</strong> <br></h3>
+<p>(Skip the endless scrolling! Tell us what you’re in the mood for, and we’ll find the perfect movie match 🎬✨ Other Category. by community builder) <br> <br> I asked <br> &gt; <strong>I like high brow horror. What other movies would you recommend me to watch?</strong> <br></p>
+<blockquote class="blockquote">
+<h5 id="elevated-horror-films-youll-love" class="anchored">🎭 Elevated Horror Films You’ll Love</h5>
+<h6 id="hereditary-2018" class="anchored">1️⃣ <strong>Hereditary (2018)</strong></h6>
+<ul>
+<li>🍅 <strong>Critics:</strong> 90% | <strong>Audience:</strong> 69%<br>
+</li>
+<li>📜 <strong>Plot:</strong> A slow-burn family tragedy turns into a nightmare as a grieving mother unravels sinister secrets about her ancestry.<br>
+</li>
+<li>📺 <strong>Streaming:</strong> <a href="https://www.justwatch.com/">Check Availability</a><br>
+</li>
+<li>🎥 <a href="https://www.youtube.com/watch?v=V6wWKNij_1M"><strong>Click Here to Watch Trailer</strong></a><br>
+</li>
+<li>🎬 <strong>Director:</strong> Ari Aster</li>
+</ul>
+<hr>
+<h6 id="the-witch-2015" class="anchored">2️⃣ <strong>The Witch (2015)</strong></h6>
+<ul>
+<li>🍅 <strong>Critics:</strong> 90% | <strong>Audience:</strong> 59%<br>
+</li>
+<li>📜 <strong>Plot:</strong> A 17th-century Puritan family, exiled to the wilderness, faces paranoia, isolation, and supernatural forces.<br>
+</li>
+<li>📺 <strong>Streaming:</strong> <a href="https://www.justwatch.com/">Check Availability</a><br>
+</li>
+<li>🎥 <a href="https://www.youtube.com/watch?v=iQXmlf3Sefg"><strong>Click Here to Watch Trailer</strong></a><br>
+</li>
+<li>🎬 <strong>Director:</strong> Robert Eggers</li>
+</ul>
+<hr>
+<h6 id="saint-maud-2019" class="anchored">3️⃣ <strong>Saint Maud (2019)</strong></h6>
+<ul>
+<li>🍅 <strong>Critics:</strong> 93% | <strong>Audience:</strong> 64%<br>
+</li>
+<li>📜 <strong>Plot:</strong> A pious nurse, haunted by past trauma, spirals into religious fanaticism as she believes she’s been chosen by God.<br>
+</li>
+<li>📺 <strong>Streaming:</strong> <a href="https://www.justwatch.com/">Check Availability</a><br>
+</li>
+<li>🎥 <a href="https://www.youtube.com/watch?v=EXs2-TY9qok"><strong>Click Here to Watch Trailer</strong></a><br>
+</li>
+<li>🎬 <strong>Director:</strong> Rose Glass</li>
+</ul>
+<hr>
+<h6 id="the-lighthouse-2019" class="anchored">4️⃣ <strong>The Lighthouse (2019)</strong></h6>
+<ul>
+<li>🍅 <strong>Critics:</strong> 90% | <strong>Audience:</strong> 72%<br>
+</li>
+<li>📜 <strong>Plot:</strong> Two lighthouse keepers descend into madness as isolation, power struggles, and eerie visions haunt them.<br>
+</li>
+<li>📺 <strong>Streaming:</strong> <a href="https://www.justwatch.com/">Check Availability</a><br>
+</li>
+<li>🎥 <a href="https://www.youtube.com/watch?v=Hyag7lR8CPA"><strong>Click Here to Watch Trailer</strong></a><br>
+</li>
+<li>🎬 <strong>Director:</strong> Robert Eggers</li>
+</ul>
+<hr>
+<h6 id="possession-1981" class="anchored">5️⃣ <strong>Possession (1981)</strong></h6>
+<ul>
+<li>🍅 <strong>Critics:</strong> 86% | <strong>Audience:</strong> 84%<br>
+</li>
+<li>📜 <strong>Plot:</strong> A woman’s erratic behavior following a breakup reveals a horrifying, supernatural secret.<br>
+</li>
+<li>📺 <strong>Streaming:</strong> <a href="https://www.justwatch.com/">Check Availability</a><br>
+</li>
+<li>🎥 <a href="https://www.youtube.com/watch?v=PYZKeFP7N6g"><strong>Click Here to Watch Trailer</strong></a><br>
+</li>
+<li>🎬 <strong>Director:</strong> Andrzej Żuławski</li>
+</ul>
+<hr>
+<h6 id="it-follows-2014" class="anchored">6️⃣ <strong>It Follows (2014)</strong></h6>
+<ul>
+<li>🍅 <strong>Critics:</strong> 95% | <strong>Audience:</strong> 66%<br>
+</li>
+<li>📜 <strong>Plot:</strong> A supernatural entity relentlessly stalks a young woman after a cursed encounter.<br>
+</li>
+<li>📺 <strong>Streaming:</strong> <a href="https://www.justwatch.com/">Check Availability</a><br>
+</li>
+<li>🎥 <a href="https://www.youtube.com/watch?v=HkZYbOH0ujw"><strong>Click Here to Watch Trailer</strong></a><br>
+</li>
+<li>🎬 <strong>Director:</strong> David Robert Mitchell</li>
+</ul>
+<hr>
+<h6 id="the-wailing-2016" class="anchored">7️⃣ <strong>The Wailing (2016)</strong></h6>
+<ul>
+<li>🍅 <strong>Critics:</strong> 99% | <strong>Audience:</strong> 81%<br>
+</li>
+<li>📜 <strong>Plot:</strong> A rural village in South Korea is plagued by mysterious deaths, and a police officer must uncover whether it’s supernatural or human evil at play.<br>
+</li>
+<li>📺 <strong>Streaming:</strong> <a href="https://www.justwatch.com/">Check Availability</a><br>
+</li>
+<li>🎥 <a href="https://www.youtube.com/watch?v=43uAputjI4k"><strong>Click Here to Watch Trailer</strong></a><br>
+</li>
+<li>🎬 <strong>Director:</strong> Na Hong-jin</li>
+</ul>
+<hr>
+<h6 id="under-the-skin-2013" class="anchored">8️⃣ <strong>Under the Skin (2013)</strong></h6>
+<ul>
+<li>🍅 <strong>Critics:</strong> 84% | <strong>Audience:</strong> 55%<br>
+</li>
+<li>📜 <strong>Plot:</strong> An eerie, hypnotic film where an alien (Scarlett Johansson) preys on lonely men in Scotland, leading to existential horror.<br>
+</li>
+<li>📺 <strong>Streaming:</strong> <a href="https://www.justwatch.com/">Check Availability</a><br>
+</li>
+<li>🎥 <a href="https://www.youtube.com/watch?v=NoSWbyvdhHw"><strong>Click Here to Watch Trailer</strong></a><br>
+</li>
+<li>🎬 <strong>Director:</strong> Jonathan Glazer</li>
+</ul>
+<hr>
+<p>💡 <strong>Would you like recommendations based on a specific subgenre?</strong> (e.g., Folk Horror, Psychological Horror, Foreign Horror)</p>
+</blockquote>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/jdeng75\.github\.io\/comm4190_S25_Using_LLMs_Blog\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
