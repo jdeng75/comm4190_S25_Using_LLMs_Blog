@@ -162,6 +162,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<p><img src="11.png" width="100%"></p>
 <section id="overview" class="level1">
 <h1>Overview</h1>
 <p>In The New York Times article **“Watch an AI Learn to Write By Reading Nothing But ___“** by <strong>Aatish Bhatia</strong>, he spends weeks reading AI research articles and training tiny language models on his computer. In his aticle, he uses”BabyGPT” to prompt AI to learn language by reading only the complete works of the readers’ choosing; Jane Austin, Shakespeare, Federalist Papers, Moby-Dick, Star Trek: The Next Generation, and Harry Potter. This BabyAI only sees 900 thousand words and nothing else.</p>
@@ -174,6 +175,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="nanogpt" class="level1">
 <h1>nanoGPT</h1>
+<p>I wanted to look to see how they were able to do these training experiments, so I took a look at the original github. Here’s just a summary of what I learn, hope it’s useful!</p>
 <p><strong>Here’s the github link if you want to explore nanoGPT</strong> : https://github.com/karpathy/nanoGPT</p>
 <section id="readme" class="level3">
 <h3 class="anchored" data-anchor-id="readme">README</h3>
@@ -281,9 +283,45 @@ $ python train.py config/eval_gpt2_xl.py</code></pre>
 </tr>
 </tbody>
 </table>
-
-
 </section>
+<section id="finetuning" class="level3">
+<h3 class="anchored" data-anchor-id="finetuning">finetuning</h3>
+<p>Finetuning is very similar to training, it’s just training with a smaller learning rate. You make sure to initialize from a pretrained model and train with a smaller learning rate. Here’s an example of finetuning that they include: <br> <br></p>
+<pre><code>python train.py config/finetune_shakespeare.py</code></pre>
+<p>And when you run the code with: <br></p>
+<pre><code>sample.py --out_dir=out-shakespeare</code></pre>
+<p>The output is: <br></p>
+<pre><code>THEODORE:
+Thou shalt sell me to the highest bidder: if I die,
+I sell thee to the first; if I go mad,
+I sell thee to the second; if I
+lie, I sell thee to the third; if I slay,
+I sell thee to the fourth: so buy or sell,
+I tell thee again, thou shalt not sell my
+possession.
+
+JULIET:
+And if thou steal, thou shalt not sell thyself.
+
+THEODORE:
+I do not steal; I sell the stolen goods.
+
+THEODORE:
+Thou know'st not what thou sell'st; thou, a woman,
+Thou art ever a victim, a thing of no worth:
+Thou hast no right, no right, but to be sold.</code></pre>
+</section>
+<section id="sampling-inference" class="level3">
+<h3 class="anchored" data-anchor-id="sampling-inference">sampling / inference</h3>
+<p>If you want a script to sample from a model you trained for yourself, or sample from a pre-trained GPT-2 model from OpenAI, you can use: <br></p>
+<pre><code>sample.py</code></pre>
+</section>
+</section>
+<section id="overall-notes" class="level1">
+<h1>Overall Notes</h1>
+<p>nanoGPT is minimalistic, but is important to help people learn how GPT models work under the hood. It makes it easier for me to understand and study the model’s architecture, training, and inference. <br> It’s also a pretty modest hardware, like a single GPU. It’s different from large-scale models that need massive compute. <br> And unlike the commercial models, nanoGPT offers a transparent, open-source alternative that breaks down how LLMs work. <br> It’s a cute little starter kid for GPT models.</p>
+
+
 </section>
 
 </main> <!-- /main -->
