@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -173,8 +207,44 @@ ul.task-list li input[type="checkbox"] {
 <p>I remember I took <strong>CIS110</strong> in the past, and for one of our homeworks we had to do a <strong>music analysis</strong> assignment. From what I can remember, the professor provided us with a CSV file of music. There was a lot of different analytics we could explore: duration of song, artist who wrote it, tempo, genre, etc etc. <br> <br></p>
 <p>I can’t really remember what I did or what I analyzed… but I’m wondering if I could download a few CSV files of my different playlists to see what AI can analyze based off my data. <br> <br></p>
 <p>My ultimate goal is to see if it does better than Spotify AI DJ when it comes to helping me explore new music, while understanding what type of music I’d like to listen to based on my playlists. <br> <br></p>
-<p>I’m going to used Claude 3.7 this time around. Just to switch it up from using GPT.</p>
 <hr>
+</section>
+<section id="arts-n-crafts-playlist" class="level1">
+<h1>Arts N Crafts Playlist</h1>
+<p><img src="artsNcrafts.png" width="100%"></p>
+<p><br></p>
+<p>I don’t know if you can tell, but this is a playlist that’s more folk and country music. <strong>Don’t judge me</strong>, I know many people hate country. I did too, until I went camping in Maine with friends who put me onto Luke Combs. Anyways. Yea. This is just a mix of music that sort of all give me the same vibes. <br> <br> But vibes is very subjective. Some of the songs on here aren’t even country or folk- I just put it in their based on my best judgement. <br> <br> But let’s see what sort of analytics we can pull from this. To start off, I’m going to <strong>download a CSV file</strong> of this to pull all the data. <br> <br></p>
+<p>I asked gpt if it could do some simple analysis first: <br></p>
+<blockquote class="blockquote">
+<p>prompt: please help me do R code to make data analysis for this csv of my music from a playlist. can you make a bubble graph</p>
+</blockquote>
+<p><br></p>
+<p>It created a bubble chart with - X axis: <strong>Tempo</strong> (beats per minute) - Y axis: <strong>Valence</strong> (musical positivity) - Bubble Size: <strong>Popularity</strong> (Spotify’s popularity score)</p>
+<p><img src="Bubble.png" width="100%"></p>
+<p><br> And here’s the code for it <br></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a># Load necessary libraries</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a># Load the data</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/arts_n_crafts.csv"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a># Create a combined label <span class="cf">for</span> top songs</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">&lt;-</span> df <span class="op">%&gt;%</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(Label <span class="op">=</span> <span class="fu">paste</span>(<span class="vs">`Track Name`</span><span class="op">,</span> <span class="st">"-"</span><span class="op">,</span> <span class="vs">`Artist Name(s)`</span>))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a># Plot<span class="op">:</span> Bubble chart</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df<span class="op">,</span> <span class="fu">aes</span>(x <span class="op">=</span> Tempo<span class="op">,</span> y <span class="op">=</span> Valence<span class="op">,</span> size <span class="op">=</span> Popularity)) <span class="op">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">,</span> color <span class="op">=</span> <span class="st">"skyblue"</span>) <span class="op">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(data <span class="op">=</span> df <span class="op">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">10</span><span class="op">,</span> Popularity)<span class="op">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(label <span class="op">=</span> Label)<span class="op">,</span> size <span class="op">=</span> <span class="dv">3</span><span class="op">,</span> vjust <span class="op">=</span> <span class="fl">1.2</span><span class="op">,</span> hjust <span class="op">=</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size</span>(range <span class="op">=</span> <span class="fu">c</span>(<span class="dv">3</span><span class="op">,</span> <span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(title <span class="op">=</span> <span class="st">"Bubble Chart of Playlist Songs"</span><span class="op">,</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>       x <span class="op">=</span> <span class="st">"Tempo (BPM)"</span><span class="op">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Valence (Positivity)"</span><span class="op">,</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>       size <span class="op">=</span> <span class="st">"Popularity"</span>) <span class="op">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
