@@ -219,7 +219,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>prompt: please help me do R code to make data analysis for this csv of my music from a playlist. can you make a bubble graph</p>
 </blockquote>
 <p><br></p>
-<p>It created a bubble chart with - X axis: <strong>Tempo</strong> (beats per minute) - Y axis: <strong>Valence</strong> (musical positivity) - Bubble Size: <strong>Popularity</strong> (Spotify’s popularity score)</p>
+<p>It created a bubble chart with <br></p>
+<ul>
+<li>X axis: <strong>Tempo</strong> (beats per minute)</li>
+<li>Y axis: <strong>Valence</strong> (musical positivity)</li>
+<li>Bubble Size: <strong>Popularity</strong> (Spotify’s popularity score)</li>
+</ul>
 <p><img src="Bubble.png" width="100%"></p>
 <p><br> And here’s the code for it <br></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a># Load necessary libraries</span>
@@ -245,14 +250,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Valence (Positivity)"</span><span class="op">,</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>       size <span class="op">=</span> <span class="st">"Popularity"</span>) <span class="op">+</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br> I also found the <strong>Top 10 Most Popular Songs</strong> in the playlist. <br> <br> <img src="Top10.png" width="100%"></p>
-<p>Now that we have this, I want to look at other ways I could find out how to <strong>create a prediction model</strong> on what new music I would be most drawn to. <br> <br> So I asked gpt: <br> &gt; what would be the best way to predict what other new songs I would like based on the music I have in this playlist</p>
+<p><br></p>
+<p>I also found the <strong>Top 10 Most Popular Songs</strong> in the playlist. <br> <br> <img src="Top10.png" width="100%"></p>
+<p>Now that we have this, I want to look at other ways I could find out how to <strong>create a prediction model</strong> on what new music I would be most drawn to. <br> <br> So I asked gpt: <br></p>
+<blockquote class="blockquote">
+<p>what would be the best way to predict what other new songs I would like based on the music I have in this playlist</p>
+</blockquote>
 <p><br></p>
 <p><strong>What GPT 4o</strong> recommended was to <br></p>
 <ol type="1">
 <li>Audio Feature-Based Similarity</li>
 </ol>
-<pre class="jr"><code># Average feature profile of your playlist
+<pre class="jr"><code>
+# Average feature profile of your playlist
 feature_cols &lt;- c("Valence", "Energy", "Danceability", "Tempo", "Acousticness")
 profile &lt;- df %&gt;%
   select(all_of(feature_cols)) %&gt;%
@@ -269,6 +279,19 @@ df$Cluster &lt;- as.factor(kmeans_result$cluster)
 </code></pre>
 <ol start="3" type="1">
 <li>Collaborative Filtering (Spotify Style) <br> This needs listening data from many users and not only me. It recommends that I use Spotify’s Recommendations API where I can send my favorite songs or artists and gives me</li>
+</ol>
+<pre class="jr"><code>library(spotifyr)
+
+# Set up authentication (you’ll need a Spotify developer account)
+access_token &lt;- get_spotify_access_token()
+
+# Get recommendations based on seed tracks
+recommended &lt;- get_recommendations(seed_tracks = c("0GNVXNz7Jkicfk2mp5OyG5"),
+                                   limit = 10)
+</code></pre>
+<ol start="4" type="1">
+<li><p>Mood or Genre Tagging <br> Group my songs by mood (based on valence and energy) or genre (if available), then explore similar ones in that space</p></li>
+<li><p>Machine Learning (if I’m ambitious) <br> If I have song ratings or like/dislike flags, I can train a classification model (like logistic regression or random forest) and the model can predict whether I’d like a new song based on its feature.</p></li>
 </ol>
 
 
