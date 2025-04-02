@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jenn Deng">
+<meta name="dcterms.date" content="2025-03-18">
+<meta name="description" content="The thing I’ve learned is to expect nothing and accept everthing.">
+
+<title>Sisyphus 55 (AI Version) – Jenn Deng’s Exploration with LLMs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-16fb397360ac6373c2344189e05b0de0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jenn Deng’s Exploration with LLMs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Sisyphus 55 (AI Version)</h1>
+                  <div>
+        <div class="description">
+          The thing I’ve learned is to expect nothing and accept everthing.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">prompting</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jenn Deng </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 18, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="can-ai-think-like-a-philosopher" class="level1">
+<h1>Can AI Think Like a Philosopher</h1>
+<hr>
+<p><img src="1.png" width="100%"></p>
+<hr>
+<p>One day while I got bored of watching the same <em>Greys Anatomy</em> clips on YouTube, I stumbled across a video called “love without attachment” by <strong>Sisyphus 55</strong> and instantly fell into a deep loop of watching all his videos. There was something about the poorly drawn stick figures and simple video titles that drew me in. <br> <br> <img src="2.png" width="100%"> <br> <br></p>
+<p><strong>Sisyphus 55</strong> is an American-Canadian YouTuber who makes videos about philosophy, empathy, and modern thinkers. The name might ring a bell; he named his channel after his favorite book by philosopher Albery Camus. <br> <br> He makes a ton of videos analyzying and critiquing philosophers, both modern and ancient ones. You might’ve seen his video <strong>NIETZSCHE:THE MAN WHO VIBE CHECKED GOD</strong> or <strong>THE SCARIEST PHILOSOPHERS OF ALL TIME</strong>. He talks about their life and what shaped their way of thinking, as well as analyzing his own thoughts about the different philosophers he talks about. There are many different videos outside of just analyzing different philosophers- he also has various video essays on the meaning of life, on love, and adds little animations to include visual stimulation for viewers. <br> <br></p>
+<p>There are a lot of great videos on this channel. I constantly play it in the background as I’m eating, or even on a few runs whenever I need some mental stimulation. Sometimes when I read the titles, I like to predict what Sisyphus 55 would talk about. <br> <br></p>
+<p>In this blog post, I want to see what <strong>deepseek-r1:1.5b</strong> would respond with after I prompt it to explain what it thinks each video will be about. I want to also see if I’ll be able to get any philosophical ideas from <strong>deepseek</strong> and engage on these ideas. <br> <br></p>
+<p><strong>Let’s play pretend philosophers!</strong> <br> <br> I’m going to choose the videos with most ambiguous titles.</p>
+<hr>
+</section>
+<section id="right-personwrong-time" class="level1">
+<h1>Right Person/Wrong Time</h1>
+<p><img src="3.png" width="100%"></p>
+<p>I prompted deepseek by asking: <br> &gt; pretend you were a YouTuber who made content on philosophical ideas and exploring the meaning of life. One of the video titles you have is “right person/wrong time”.” What might you discuss in this video?</p>
+<details>
+<summary>
+deepseek Thougths
+</summary>
+<p>Alright, I need to figure out what the user is asking for. They want me to act as a YouTuber discussing “Right Person/Wrong Time,” specifically focusing on philosophical ideas and the meaning of life.</p>
+<p>First, I should break down the title. It combines two main concepts: right person and wrong time. Right person refers to making the best choice based on your values, while wrong time is about actions that make you happy or lead to positive outcomes. So, it’s about finding alignment between your choices and the events they’re facing.</p>
+<p>I wonder if the user wants a video title but not necessarily an engaging one. Maybe they just want a structured outline of what to cover. But since they provided “right person/wrong time,” I think they want a detailed discussion on this topic, perhaps including both philosophy and practical life insights.</p>
+<p>Next, I need to consider the content that could be discussed in such a video. The user might explore various philosophical perspectives like existentialism, virtue ethics, Derek Parfit’s concept of purpose, and even some personal anecdotes. They should also touch on how these ideas apply to real-life decisions and relationships.</p>
+<p>Including practical examples is key here. For instance, the principle that “you are who you choose to be” by C.S. Lewis can be tied into making decisions about life goals. Parfit’s idea of purpose helps in understanding why someone does what they do, which can influence their personal choices. The duality between good and evil adds another layer, showing how even flawed choices can lead to good outcomes.</p>
+<p>I should also address the balance between self-interest and otherness, especially during high-stress times like work or relationships. This makes the discussion more relatable and shows that these concepts aren’t just abstract ideas but have real-world implications.</p>
+<p>The conclusion might be about trusting oneself and following one’s core values, which ties back to the broader theme of right person/wrong time. This way, the video not only explores philosophical ideas but also provides actionable advice on how to navigate life with purpose.</p>
+</details>
+<details>
+<summary>
+deepseek Response
+</summary>
+<ol type="1">
+<li>Introduction: The Duality of Human Life Begin by introducing the concept of “right person” as the choice we make based on our values, and “wrong time” as the events or choices that lead us to them. Emphasize that life is inherently self-dual—both a struggle for rights and a challenge for the wrongness of the path.</li>
+<li>Philosophical Perspectives Existentialism: Discuss thinkers like Sartre, Derrida, and Le Guernec who emphasize the individual’s responsibility in shaping their own existence. How existentialists view the importance of choosing a life aligned with one’s purpose and values, even in uncertain or harsh circumstances. Virtue Ethics: Explore how virtues like love, kindness, and integrity guide us toward “right person” decisions in the face of uncertainty. The role of virtues as moral compasses when the path is unclear. Derek Parfit’s “Purpose”: Explain Parfit’s concept of purpose as a bridge between harm and good. How understanding this helps us make choices that align with our values, even in the face of moral uncertainty.</li>
+<li>The Principle of “You Are Who You Choose to Be” Discuss C.S. Lewis’s principle: “You are who you choose to be.” How this applies beyond philosophy—how life choices (right person) influence the events we experience and their outcomes. Examples include career goals, relationships, or personal choices in family matters.</li>
+<li>The Power of Choice Explore how choosing a right person leads to opportunities for positive action (wrong time). Use examples like making a life choice that aligns with values, leading to successful relationships or professional advancements. The balance between pursuing your core values and the external pressures of time.</li>
+<li>The Role of Otherness Discuss how others can influence our decisions and outcomes. Parfit’s idea about “dualism” (the tension between good and evil) ties into this, showing that even flawed choices can lead to positive outcomes when aligned with values. The concept of “otherness”—being in the present moment—can help navigate these dynamics.</li>
+<li>The High-Stakes Game Address the challenges of making decisions during high-stress times (work, relationships, etc.). How Parfit’s ideas about purpose and choice apply here. The importance of not getting caught in the weeds but knowing your values.</li>
+<li>Personal Reflection: “You Are Who You Choose to Be” Encourage viewers to reflect on their own choices and whether they align with their values. How this reflection can lead to personal growth and a sense of purpose. The role of mindfulness in choosing the right person when things get tough.</li>
+<li>The Conclusion: Right Person / Wrong Time Summarize how understanding both perspectives helps us find meaning in life. Remind viewers that self-compassion and a strong moral foundation are keys to navigating both “right person” and “wrong time.” The importance of trusting one’s values, even when they seem “wrong,” as part of the journey toward a better life. This title and content blend philosophical depth with practical advice, offering a comprehensive exploration of the concept.</li>
+</ol>
+</details>
+<hr>
+</section>
+<section id="how-we-think-of-love-is-messed-up" class="level1">
+<h1>How We Think Of Love is Messed Up</h1>
+<p><img src="4.png" width="100%"></p>
+<p>My next prompt was: <br> &gt; ok, what if you wanted to make another video titled “how we think of love is messed up”</p>
+<details>
+<summary>
+deepseek Thougths
+</summary>
+<p>Okay, so I’m thinking about making another YouTuber-level video titled “How We Think of Love Is Messed Up.” Hmm, where do I start? Well, first off, I need to understand what the title means. It seems like the video will explore how our understanding of love is flawed and likely harmful.</p>
+<p>I guess the person wants to talk about this in-depth. So, they’re probably aiming for a serious discussion on the nature of love and its importance in relationships. They might want to challenge people who believe love isn’t important or that it’s all about control.</p>
+<p>But how do I structure this? Should I start with an introduction explaining what love is? Then, move into discussing common misconceptions about love, like it being only for the other person or something irrational. Maybe include some real-life examples where misunderstandings have led to problems in relationships.</p>
+<p>Also, I wonder if there’s any research or existing theories on this topic. Perhaps looking into cognitive-behavioral therapy (CBT) could be relevant, as it deals with how people think and change their behavior based on their beliefs.</p>
+<p>I also need to consider the tone. It shouldn’t be too formal; more like a personal reflection. Maybe include some anecdotes or stories about how love is being misunderstood in real-life situations.</p>
+<p>Wait, should I focus on preventing misunderstandings? Or just discuss them? The title says “how we think of love is messed up,” so maybe both discussing the issue and perhaps offering solutions or strategies to improve understanding.</p>
+<p>Hmm, another angle could be looking at literature or cultural perspectives on love. Perhaps examining how different societies view love and its role in their relationships. This could provide a broader context for why love might be perceived as messed up by some people.</p>
+<p>Also, I need to make sure the video isn’t just about stating facts but also about taking it to an emotional level. Maybe include personal feelings or experiences where misunderstandings affected someone’s relationship dynamics.</p>
+<p>What about the structure? Maybe start with an intro that sets the stage for why love might be misunderstood. Then, break down different aspects of love—like physical attraction, shared interests, commitment—explaining how each is perceived differently. Perhaps touch on how cultural and social factors contribute to this misunderstanding.</p>
+<p>Including real-life examples where misunderstandings have led to problems in relationships could make the content more relatable. Maybe include scenarios from popular TV shows or movies where love was misunderstood, leading to unhappy outcomes.</p>
+<p>I should also consider who the audience might be. It looks like it’s for anyone interested in understanding the complexities of love and its role in human relationships. So, keeping the language accessible but insightful would be key.</p>
+<p>Perhaps conclude with a call to action—emphasizing how self-awareness and open-mindedness can lead to more harmonious relationships by recognizing and addressing misunderstandings about love.</p>
+Okay, I think that covers most of the bases. Now, how do I put this all into a video? Do I start brainstorming ideas first or just jump in? Maybe jotting down some points on paper would help organize my thoughts better before diving into the actual content.
+</details>
+<details>
+<summary>
+deepseek Response
+</summary>
+</details></section>
+<section id="the-misunderstandings-of-love-how-we-think-it-is-messed-up" class="level1">
+<h1>The Misunderstandings of Love: How We Think It Is Messed Up</h1>
+<p>This video explores how love is often misunderstood in different cultures, social groups, and even individuals. It will cover: - What love truly is in different contexts - Common misconceptions about love’s complexity - Cultural and social influences on how love is perceived - Strategies for better understanding love</p>
+<section id="min-intro-how-love-can-be-messed-up" class="level2">
+<h2 class="anchored" data-anchor-id="min-intro-how-love-can-be-messed-up">5 Min intro: How Love Can Be Messed Up</h2>
+<p>Start with an engaging intro that sets the stage for discussing love’s complexities.</p>
+<blockquote class="blockquote">
+<p>“Love isn’t just one thing—it can be interpreted in so many ways, depending on who you ask and where you live. But while some people think love is only for the other person, others might see it as a shared interest or a deep connection.”</p>
+</blockquote>
+</section>
+<section id="min-the-complexity-of-love" class="level2">
+<h2 class="anchored" data-anchor-id="min-the-complexity-of-love">10 Min: The Complexity of Love</h2>
+<p>Explore how love varies across cultures, friendships, relationships, and singles.</p>
+<blockquote class="blockquote">
+<p>“Love can be physical (attracting body parts), emotional (sharing thoughts or feelings), or even just a simple connection in the right moment. But sometimes love feels like it’s only for you—no one else. Others might think love is irrational or unattainable.”</p>
+</blockquote>
+</section>
+<section id="min-cultural-influences-on-love-perception" class="level2">
+<h2 class="anchored" data-anchor-id="min-cultural-influences-on-love-perception">5 Min: Cultural Influences on Love Perception</h2>
+<p>Examine how cultural and social factors shape our understanding of love.</p>
+<blockquote class="blockquote">
+<p>“In some cultures, love is seen as the most important aspect of relationships, while in others, it’s considered less central. Social media, traditions, and societal norms often reinforce these perceptions, making love seem like something that needs to be communicated or controlled.”</p>
+</blockquote>
+</section>
+<section id="min-how-to-better-understand-love" class="level2">
+<h2 class="anchored" data-anchor-id="min-how-to-better-understand-love">3 Min: How to Better Understand Love</h2>
+<p>Share strategies for taking ownership of your love perspective.</p>
+<blockquote class="blockquote">
+<p>“Here’s how you can think about love differently: Don’t assume it’s only one person. Be open-minded and consider what might work for others—your partner, a friend, a family member, or even yourself.”</p>
+</blockquote>
+</section>
+<section id="min-conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="min-conclusion">3 Min: Conclusion</h2>
+<p>Sum up the key points and reinforce the idea that love is more than just one thing.</p>
+<blockquote class="blockquote">
+<p>“Love is messy because it can be seen differently in so many ways. With self-awareness and empathy, you can start to see it as what feels right for you, even if others don’t.”</p>
+</blockquote>
+</section>
+<section id="min-call-to-action" class="level2">
+<h2 class="anchored" data-anchor-id="min-call-to-action">2 Min: Call to Action</h2>
+<p>Call viewers to take action—start thinking about love in a way that resonates with them.</p>
+<blockquote class="blockquote">
+<p>“You might not think love is messed up yet, but as you grow older and interact more deeply, your perspective on love may change. Remember, love isn’t just one person—it’s a connection that can be built, maintained, and strengthened over time.”</p>
+</blockquote>
+By the end of this video, you’ll leave with a newfound appreciation for how love can vary so much and who it might not always be for.
+
+<hr>
+</section>
+</section>
+<section id="the-fear-of-truly-living" class="level1">
+<h1>The Fear of Truly Living</h1>
+<p><img src="5.png" width="100%"></p>
+<p>For this video, I prompted: <br> &gt;Ok, you’re deep into your philosophy thinking and make a video on “the fear of truly living”.” Give me a 500 word snippet of what you would script and say.</p>
+<details>
+<summary>
+deepseek Thoughts
+</summary>
+<p>Alright, so I need to help the user by expanding their previous thought process into a detailed response that can be converted into a markdown-formatted text. The initial conversation involved discussing “Right Person / Wrong Time,” which expanded into covering love’s perceptions and its impact on relationships. Then, they moved on to creating a YouTubler-level video titled “How We Think of Love is Messed Up.”</p>
+<p>Now, the user wants me to take their current focus on creating a video titled “the fear of truly living” and provide a 500-word snippet in markdown format that could be used for the video.</p>
+<p>First, I should consider what “the fear of truly living” entails. It likely refers to embracing life fully without being overly focused or preoccupied with expectations or desires. This shift can lead to more authentic happiness.</p>
+<p>Next, I need to outline key points to cover in a 500-word snippet:</p>
+<p>Introduction: What the film is about, its purpose. The Fear of Being Overly Focused: Discussing the negative outcomes when living too much on oneself. The Power of Gratitude and Presence: Emphasizing positive aspects of being present. Bridging the Gap Between Thought and Reality: How to find peace through connection rather than comparison. Conclusion: Living Fully, Alive: The goal of embracing life as it is. I should structure each section with clear headings and ensure the language flows naturally, avoiding overly technical terms to keep it accessible.</p>
+Finally, I’ll make sure the markdown formatting includes bullet points for headings and a concise flow between them.
+</details>
+<details>
+<summary>
+deepseek Response
+</summary>
+<p><strong>The Balance of Life and Love: Understanding Rightness in a Grateful World</strong></p>
+<p>living right is about finding the right harmony between personal goals and relationships. The concept of gratitude, which often highlights small joys as significant moments, plays a crucial role in this balance. By appreciating even mundane moments, we gain a sense of completeness and fulfillment—this appreciation ties into love as it involves connecting with others and finding meaning in shared experiences.</p>
+Ultimately, living right is about embracing purpose, creating meaning, and being deeply connected to both oneself and those around us. It requires patience, flexibility, and an open heart towards others, allowing us to fulfill our best selves while fostering lasting relationships. This balance ensures that we are not only striving for individual fulfillment but also contributing to the lives of those around us in meaningful ways. Ultimately, true life is one where we find purpose, create meaning, and live deeply in love, all while striving for personal greatness.
+</details>
+<hr>
+</section>
+<section id="quarter-life-crisis" class="level1">
+<h1>Quarter Life Crisis</h1>
+<p>(maybe I should watch this now…)</p>
+<p><img src="6.png" width="100%"></p>
+<p>I did something similar to the last prompt and asked: <br> &gt; you’re a philosopher going through a quarter life crisis, so you decide to create a video called “quarter life crisis.” Can you give me a 500 word paragraph snippet of something you would say in the video?</p>
+<details>
+<summary>
+deepseek Thoughts
+</summary>
+<p>Alright, I need to help craft a 500-word paragraph from a philosophy perspective about a quarter-life crisis. Let’s think through this step by step.</p>
+<p>First, understanding who the audience is—students or anyone looking for inspiration. They’re probably seeking wisdom on navigating life’s ups and downs. So, in the video titled “The Quarter-Life Crisis,” I need to address how personal growth often feels like it’s tied to specific phases of life, especially after age 25.</p>
+<p>I should focus on themes like adaptability, seeking inner peace, embracing change, and balancing pursuit with authenticity. Maybe include examples like starting a new career or career changes to show real-life applications.</p>
+<p>Also, touch on the idea that what works one day might not work the next, emphasizing resilience and flexibility in navigating life’s curveballs. Including words about moving from individualism to social interaction could add depth.</p>
+Overall, the video should motivate viewers by highlighting their ability to grow as individuals through embracing each phase of their journey
+</details>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/jdeng75\.github\.io\/comm4190_S25_Using_LLMs_Blog\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
