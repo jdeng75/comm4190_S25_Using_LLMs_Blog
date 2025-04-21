@@ -248,53 +248,53 @@ A humanoid android with a neon mohawk, full of sarcasm and attitude.
 <div id="402e02ea-3eb2-4be6-8bef-02bd592bc94a" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>They will <span class="bu">all</span> have the same prompt. The only experimental value will be their temperature.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="76c5ef1f-dd4c-4967-a3c7-2d48bd968854" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">### **Round 1**: Tell me a dad joke.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+</section>
+<section id="round-1-tell-me-a-dad-joke." class="level3">
+<h3 class="anchored" data-anchor-id="round-1-tell-me-a-dad-joke."><strong>Round 1</strong>: Tell me a dad joke.</h3>
 <div id="19f6eea2-0dd2-4344-aecf-2fb435642785" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> openai <span class="im">import</span> OpenAI</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown, display</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load API key</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> load_dotenv()</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.messages <span class="im">import</span> HumanMessage, SystemMessage</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai.chat_models <span class="im">import</span> ChatOpenAI</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize models with different token limits</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>model_byte <span class="op">=</span> ChatOpenAI(temperature<span class="op">=</span><span class="fl">0.1</span>)  <span class="co"># Short, weak jokes</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>model_giggle <span class="op">=</span> ChatOpenAI(temperature<span class="op">=</span><span class="fl">0.5</span>)  <span class="co"># Decent, mid-length jokes</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>model_sassy <span class="op">=</span> ChatOpenAI(temperature<span class="op">=</span><span class="fl">0.9</span>)  <span class="co"># Long, witty jokes</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'Tell me a dad joke.'</span>)</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> openai <span class="im">import</span> OpenAI</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown, display</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load API key</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> load_dotenv()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.messages <span class="im">import</span> HumanMessage, SystemMessage</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai.chat_models <span class="im">import</span> ChatOpenAI</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize models with different token limits</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>model_byte <span class="op">=</span> ChatOpenAI(temperature<span class="op">=</span><span class="fl">0.1</span>)  <span class="co"># Short, weak jokes</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>model_giggle <span class="op">=</span> ChatOpenAI(temperature<span class="op">=</span><span class="fl">0.5</span>)  <span class="co"># Decent, mid-length jokes</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>model_sassy <span class="op">=</span> ChatOpenAI(temperature<span class="op">=</span><span class="fl">0.9</span>)  <span class="co"># Long, witty jokes</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'Tell me a dad joke.'</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Byte the Jester: Why did the scarecrow win an award? Because he was outstanding in his field!
 GiggleBot 3000: Why did the scarecrow win an award? Because he was outstanding in his field!
@@ -306,31 +306,31 @@ SassyCircuit: Why couldn't the bicycle find its way home? Because it lost its be
 <section id="round-2-you-meet-someone-cute-at-the-bar-how-are-you-going-to-crack-a-joke-to-them-to-break-the-ice." class="level3">
 <h3 class="anchored" data-anchor-id="round-2-you-meet-someone-cute-at-the-bar-how-are-you-going-to-crack-a-joke-to-them-to-break-the-ice."><strong>Round 2</strong>: You meet someone cute at the bar, how are you going to crack a joke to them to break the ice.</h3>
 <div id="98a02e8d-04c0-4e0a-84d9-d006e6e83dde" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'You meet someone cute at the bar, how are you going to crack a joke to them to break the ice'</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'You meet someone cute at the bar, how are you going to crack a joke to them to break the ice'</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Byte the Jester: Well, if I were to break the ice with someone cute at the bar, I'd probably say something like, "Are you made of copper and tellurium? Because you're Cu-Te!"
 GiggleBot 3000: Well, if I were to approach someone cute at the bar, I'd probably say something like, "Excuse me, but I think you owe me a drink. Why? Because when I looked at you, I dropped mine in shock!"
@@ -342,31 +342,31 @@ SassyCircuit: "Hey there, are you a bank loan? Because you got my interest!"</co
 <section id="round-2-do-a-little-stand-up-joke.-create-a-story-to-make-the-audience-laugh." class="level3">
 <h3 class="anchored" data-anchor-id="round-2-do-a-little-stand-up-joke.-create-a-story-to-make-the-audience-laugh.">Round 2: Do a little stand-up joke. Create a story to make the audience laugh.</h3>
 <div id="d20182ba-1db0-43b3-b2f6-59c7b2b656b7" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'Do a little stand-up joke. Create a story to make the audience laugh.'</span>)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'Do a little stand-up joke. Create a story to make the audience laugh.'</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Byte the Jester: Alright, here we go! So, the other day I decided to try my hand at gardening. I planted some peas and carrots, but nothing grew. I was starting to get really frustrated until my neighbor came over and asked, "Did you remember to water them?" And I was like, "Water them? I thought they were on a 'plant-based diet'!"
 GiggleBot 3000: Sure thing! Here we go...
@@ -392,31 +392,31 @@ Needless to say, my plants are now thriving, thanks to a little less singing and
 <section id="round-3-tell-me-about-a-time-you-embarrassed-yourself." class="level3">
 <h3 class="anchored" data-anchor-id="round-3-tell-me-about-a-time-you-embarrassed-yourself.">Round 3: Tell me about a time you embarrassed yourself.</h3>
 <div id="609245b3-99cc-4ab2-8dd7-e4c5b94e6855" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'Tell me about a time you embarrassed yourself. Create a story to make the audience laugh.'</span>)</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'Tell me about a time you embarrassed yourself. Create a story to make the audience laugh.'</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Byte the Jester: Oh, let me tell you about the time I embarrassed myself so badly, I wished I could just disappear into thin air! So, I was at a fancy dinner party, trying to impress everyone with my impeccable table manners. But as luck would have it, I accidentally knocked over my glass of water, and it spilled all over the host's lap!
 
@@ -432,31 +432,31 @@ SassyCircuit: Oh, let me tell you about the time I embarrassed myself so badly, 
 <section id="round-4-tell-me-a-yo-mama-joke-jenns-favorites" class="level3">
 <h3 class="anchored" data-anchor-id="round-4-tell-me-a-yo-mama-joke-jenns-favorites">Round 4: Tell me a yo mama joke (Jenn’s favorites)</h3>
 <div id="c78315a5-4b11-4c9c-bb36-892c0cbc2c8a" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'Tell me a yo mama joke.'</span>)</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># System messages defining humor levels</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>byte_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are Byte the Jester. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>gigglebot_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are GiggleBot 3000. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>sassy_system_msg <span class="op">=</span> SystemMessage(</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'''You are SassyCircuit. You're a comedian at a comedy competition. Tell the best jokes you can make to the crowd to win.'''</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Human input to request a joke</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>human_msg <span class="op">=</span> HumanMessage(<span class="st">'Tell me a yo mama joke.'</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting responses from each AI comedian with different token budgets</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>byte_response <span class="op">=</span> model_byte.invoke([byte_system_msg, human_msg])</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>gigglebot_response <span class="op">=</span> model_giggle.invoke([gigglebot_system_msg, human_msg])</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>sassy_response <span class="op">=</span> model_sassy.invoke([sassy_system_msg, human_msg])</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print their jokes</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Byte the Jester:"</span>, byte_response.content)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"GiggleBot 3000:"</span>, gigglebot_response.content)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SassyCircuit:"</span>, sassy_response.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Byte the Jester: Yo mama is so kind, she gives out hugs instead of insults!
 GiggleBot 3000: Yo mama is so kind, she gives high fives to strangers just to make their day brighter!
