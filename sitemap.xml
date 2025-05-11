@@ -2,82 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/about.html</loc>
-    <lastmod>2025-05-11T11:39:26.356Z</lastmod>
+    <lastmod>2025-05-11T12:05:50.803Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/001_Drawing_post/index1.html</loc>
-    <lastmod>2025-05-11T11:39:26.356Z</lastmod>
+    <lastmod>2025-05-11T12:05:50.803Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/017_Movie_Suggestions/17.html</loc>
-    <lastmod>2025-05-11T11:39:26.487Z</lastmod>
+    <lastmod>2025-05-11T12:05:50.933Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/013_Playing_Gemini/13.html</loc>
-    <lastmod>2025-05-11T11:39:26.443Z</lastmod>
+    <lastmod>2025-05-11T12:05:50.889Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/010_Popular_UPenn_ChatGPT/index10.html</loc>
-    <lastmod>2025-05-11T11:39:26.418Z</lastmod>
+    <lastmod>2025-05-11T12:05:50.865Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/016_Deep_Search/3.html</loc>
-    <lastmod>2025-05-11T11:39:26.480Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/018_/18.html</loc>
-    <lastmod>2025-05-11T11:39:26.494Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/002_Guestimating_R/index2.html</loc>
-    <lastmod>2025-05-11T11:39:26.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/011_Spotify/11.html</loc>
-    <lastmod>2025-05-11T11:39:26.423Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/007_LangChain/index7.html</loc>
-    <lastmod>2025-05-11T11:39:26.395Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/014_What_I_Learned_From/14.html</loc>
-    <lastmod>2025-05-11T11:39:26.456Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/009_AI_Relationships/index9.html</loc>
-    <lastmod>2025-05-11T11:39:26.412Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/003_AI_Hallucination/index3.html</loc>
-    <lastmod>2025-05-11T11:39:26.376Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/008_ComedyClub/index8.html</loc>
-    <lastmod>2025-05-11T11:39:26.398Z</lastmod>
+    <lastmod>2025-05-11T12:05:50.926Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/005_Makeup_Guru/index5.html</loc>
-    <lastmod>2025-05-11T11:39:26.383Z</lastmod>
+    <lastmod>2025-05-11T12:05:50.830Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/020_Graduation/20.html</loc>
+    <lastmod>2025-05-11T12:05:50.948Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/003_AI_Hallucination/index3.html</loc>
+    <lastmod>2025-05-11T12:05:50.823Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/009_AI_Relationships/index9.html</loc>
+    <lastmod>2025-05-11T12:05:50.858Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/014_What_I_Learned_From/14.html</loc>
+    <lastmod>2025-05-11T12:05:50.902Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/007_LangChain/index7.html</loc>
+    <lastmod>2025-05-11T12:05:50.842Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/011_Spotify/11.html</loc>
+    <lastmod>2025-05-11T12:05:50.870Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/002_Guestimating_R/index2.html</loc>
+    <lastmod>2025-05-11T12:05:50.820Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/008_ComedyClub/index8.html</loc>
+    <lastmod>2025-05-11T12:05:50.845Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/018_Relgious/18.html</loc>
+    <lastmod>2025-05-11T12:05:50.940Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/012_Sisyphus_55/12.html</loc>
-    <lastmod>2025-05-11T11:39:26.435Z</lastmod>
+    <lastmod>2025-05-11T12:05:50.881Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/015_Finding_Language/15.html</loc>
-    <lastmod>2025-05-11T11:39:26.466Z</lastmod>
+    <lastmod>2025-05-11T12:05:50.913Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/004_Valentines_Day/index4.html</loc>
-    <lastmod>2025-05-11T11:39:26.377Z</lastmod>
+    <lastmod>2025-05-11T12:05:50.823Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/posts/006_Partiful_Invitations/index6.html</loc>
-    <lastmod>2025-05-11T11:39:26.389Z</lastmod>
+    <lastmod>2025-05-11T12:05:50.835Z</lastmod>
   </url>
   <url>
     <loc>https://jdeng75.github.io/comm4190_S25_Using_LLMs_Blog/index.html</loc>
-    <lastmod>2025-05-11T11:39:26.356Z</lastmod>
+    <lastmod>2025-05-11T12:05:50.803Z</lastmod>
   </url>
 </urlset>
