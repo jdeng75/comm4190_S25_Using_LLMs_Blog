@@ -1,8 +1,8 @@
 ---
 title: About
-image: profile.jpg
+image: profile.HEIC
 about:
   template: jolla
 ---
 
-About this blog
+Explore LLMs with me! A bunch of topics all over the place!
